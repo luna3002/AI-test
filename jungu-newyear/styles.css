@@ -1,0 +1,524 @@
+﻿/* ===== ?고듃 ?뺤쓽 ===== */
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-1Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-2ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BookkMyungjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Lt.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+
+/* ===== 由ъ뀑 諛?湲곕낯 ?ㅼ젙 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Paperozi', 'Noto Sans KR', sans-serif;
+    background-color: #fff;
+    color: #000;
+    line-height: 1.8;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== 而⑦뀒?대꼫 ===== */
+.container {
+    width: 100%;
+    min-width: 375px;
+    min-height: 100vh;
+}
+
+/* ===== ?ㅻ뜑 ?뱀뀡 ===== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* 諛곌꼍 ?대?吏??*/
+.hero-images {
+    position: relative;
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    aspect-ratio: 1170 / 591;
+    background-image: url('./assets/newyear-title.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ?쒕챸 ?띿뒪??*/
+.signature-text {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    font-family: 'Paperozi', sans-serif;
+    white-space: nowrap;
+    color: #000;
+    letter-spacing: -1px;
+}
+
+.signature-text p:first-child {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+.signature-text p:last-child {
+    font-size: 24px;
+    line-height: 0;
+}
+
+.signature-text strong {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: normal;
+}
+
+/* 硫붿씤 ??댄? */
+.main-title {
+    position: absolute;
+    left: 5%;
+    top: 17%;
+    color: #000;
+    text-shadow: 0 4px 4px #E3CAB8;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #FFF;
+    font-family: 'Paperozi', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 120%;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.main-title .title-line1,
+.main-title .title-line2 {
+    display: block;
+}
+
+.main-title .highlight {
+    color: #a22a42;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #FFF;
+}
+
+/* ===== 肄섑뀗痢??섑띁 ===== */
+.content-wrapper {
+    width: 100%;
+    background-color: #9fa0a2;
+}
+
+.content-inner {
+    max-width: 1072px;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== ?몄궗留??뱀뀡 ===== */
+.greeting-section {
+    width: 100%;
+    padding: 4vw;
+    background-color: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.greeting-text {
+    font-family: 'Bookk Myungjo', serif;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.greeting-text p {
+    margin-bottom: 0;
+}
+
+.greeting-text .intro {
+    font-size: 22px;
+    color: #505050;
+}
+
+.greeting-text p:not(.intro):not(.slogan):not(.emphasis) {
+    font-size: 26px;
+    color: #000;
+    font-weight: 300;
+}
+
+.greeting-text strong {
+    font-weight: 700;
+    color: #000;
+}
+
+.greeting-text .emphasis {
+    font-size: 26px;
+    font-weight: 700;
+    color: #000;
+}
+
+.greeting-text .slogan {
+    font-size: 34px;
+    font-weight: 700;
+    color: #a22a42;
+    letter-spacing: -1px;
+}
+
+/* ===== ?뺤콉 ?뱀뀡 ===== */
+.policy-section {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.policy-section .divider {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+}
+
+.policy-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.policy-title {
+    font-family: 'Paperozi', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    color: #000;
+    letter-spacing: -1px;
+    line-height: normal;
+    white-space: pre-wrap;
+}
+
+.policy-title .highlight {
+    color: #a22a42;
+}
+
+.policy-content {
+    width: 1010px;
+    font-family: 'Paperozi', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: #222;
+    letter-spacing: -1px;
+    line-height: 1.8;
+}
+
+.policy-content p {
+    white-space: pre-wrap;
+}
+
+.policy-content strong {
+    font-weight: 700;
+}
+
+/* ===== 留덈Т由??몄궗 ?뱀뀡 ===== */
+.closing-section {
+    width: 100%;
+    padding: 60px 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.closing-text {
+    font-family: 'Bookk Myungjo', serif;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    color: #444;
+    letter-spacing: -1px;
+    line-height: 1.8;
+    max-width: 90%;
+    padding: 0 20px;
+}
+
+.closing-text p {
+    white-space: pre;
+}
+
+/* ===== ?쒕챸 ?뱀뀡 ===== */
+.signature-section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 479px;
+    padding-top: 60px;
+    background-color: #fff;
+    background-image: url('./assets/envelope.png');
+    background-size: cover;
+    background-position: center 60px;
+    background-repeat: no-repeat;
+}
+
+.signature-title,
+.signature-date {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Bookk Myungjo', serif;
+    text-align: center;
+    letter-spacing: -1px;
+    line-height: 1.8;
+    white-space: pre;
+}
+
+.signature-title {
+    top: 52.05px;
+    font-size: 20px;
+    color: #000;
+}
+
+.signature-date {
+    top: 30px;
+    font-size: 20px;
+    font-family: 'Bookk Myungjo', serif;
+    font-weight: 700;
+    color: #444;
+}
+
+.signature-name {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 60px;
+    margin-bottom: 80px;
+}
+
+/* ===== 諛섏쓳???붿옄??===== */
+@media (max-width: 1280px) {
+    .hero-section {
+        min-height: auto;
+    }
+    
+    .hero-images {
+        width: 95%;
+    }
+    
+    .content-inner {
+        padding: 0 20px;
+    }
+    
+    .policy-content {
+        width: 100%;
+        max-width: 1010px;
+    }
+    
+    .signature-section {
+        width: 100%;
+        max-width: 1170px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 48px;
+        -webkit-text-stroke-width: 1.5px;
+    }
+    
+    .signature-text p:first-child {
+        font-size: 18px;
+    }
+    
+    .signature-text p:last-child {
+        font-size: 18px;
+    }
+    
+    .signature-text strong {
+        font-size: 28px;
+    }
+    
+    .policy-title {
+        font-size: 24px;
+    }
+    
+    .policy-content {
+        font-size: 16px;
+    }
+    
+    .greeting-text .intro {
+        font-size: 18px;
+    }
+    
+    .greeting-text p:not(.intro):not(.slogan):not(.emphasis) {
+        font-size: 20px;
+    }
+    
+    .closing-text {
+        font-size: 18px;
+    }
+    
+    .signature-section {
+        min-height: 350px;
+        padding-top: 40px;
+    }
+    
+    .signature-title {
+        font-size: 16px;
+        top: 40px;
+    }
+    
+    .signature-date {
+        font-size: 16px;
+        top: 20px;
+    }
+    
+    .signature-name {
+        top: 80px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 32px;
+        -webkit-text-stroke-width: 1px;
+    }
+    
+    .signature-text p:first-child {
+        font-size: 14px;
+    }
+    
+    .signature-text p:last-child {
+        font-size: 14px;
+    }
+    
+    .signature-text strong {
+        font-size: 20px;
+    }
+    
+    .policy-title {
+        font-size: 20px;
+    }
+    
+    .policy-content {
+        font-size: 14px;
+    }
+    
+    .closing-text {
+        font-size: 16px;
+    }
+    
+    .signature-section {
+        min-height: 300px;
+        padding-top: 30px;
+    }
+    
+    .signature-title {
+        font-size: 14px;
+        top: 30px;
+    }
+    
+    .signature-date {
+        font-size: 14px;
+        top: 15px;
+    }
+    
+    .signature-name {
+        top: 70px;
+        height: 40px;
+    }
+}
+
+
