@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="100%" overflow="visible" preserveAspectRatio="none" style="display: block;" viewBox="0 0 200 200" width="100%">
+<g id="helper" opacity="0.4">
+<rect fill="var(--fill-0, #E4E4E4)" height="200" rx="100" width="200"/>
+<circle cx="100" cy="100" fill="var(--fill-0, #9E9898)" id="center" r="4"/>
+</g>
+</svg>
