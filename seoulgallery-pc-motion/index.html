@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="시민과 함께, 세계와 소통하는 서울의 대표 문화공간 - 서울갤러리">
+    <meta name="title" content="서울갤러리">
+    <title>서울갤러리</title>
+    
+    <!-- Google Fonts - Paperlogy & Pretendard -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ======================= -->
+    <!-- HEADER / NAVIGATION -->
+    <!-- ======================= -->
+    <header class="header">
+        <nav class="nav-container">
+            <!-- Logo -->
+            <a href="/" class="logo">
+                <img src="assets/logo-seoul-gallery.svg" 
+                     alt="서울갤러리 로고" 
+                     class="logo-image">    
+            </a>
+
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">서울갤러리</a></li>
+                <li><a href="#" class="nav-link">미래서울도시관</a></li>
+                <li><a href="#" class="nav-link">공간 대관</a></li>
+                <li><a href="#" class="nav-link active">프로그램</a></li>
+                <li><span class="nav-link">알림마당</span></li>
+            </ul>
+
+            <!-- Language Selector -->
+            <a href="#" class="language-selector">
+                <span>한국어</span>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 7L9 11.5L13.5 7" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </nav>
+    </header>
+
+    <!-- ======================= -->
+    <!-- HERO SECTION -->
+    <!-- ======================= -->
+    <section class="hero">
+        <div class="hero-background">
+                <img src="assets/hero-main-background.png"
+                 alt="서울갤러리 메인 이미지" 
+                 class="hero-image">
+            <div class="hero-gradient"></div>
+        </div>
+        
+        <!-- Decorative SVG Icons -->
+        <div class="hero-decoration hero-decoration-left">
+            <img src="assets/hero-decoration-left.svg" alt="" aria-hidden="true">
+        </div>
+        <div class="hero-decoration hero-decoration-bottom">
+            <img src="assets/hero-decoration-bottom.svg" alt="" aria-hidden="true">
+        </div>
+
+        <!-- Hero Text -->
+        <div class="hero-content">
+            <h1 class="hero-title">Seoul Gallery</h1>
+            <p class="hero-subtitle">시민과 함께, 세계와 소통하는 서울의 대표 문화공간</p>
+        </div>
+    </section>
+
+    <!-- ======================= -->
+    <!-- MAIN CONTENT AREA -->
+    <!-- ======================= -->
+    <main class="main-content">
+        <!-- Left Sidebar - Calendar Section -->
+        <aside class="sidebar">
+            <div class="sidebar-inner">
+                <!-- Calendar Header -->
+                <div class="calendar-header">
+                    <h2 class="calendar-title">서울 갤러리 일정</h2>
+                    <button class="calendar-view-btn">
+                        <img src="assets/icon-calendar.svg" alt="" width="14" height="16">
+                        <span>달력보기</span>
+                    </button>
+                </div>
+
+                <!-- Month Navigation -->
+                <div class="month-nav">
+                    <button class="month-nav-btn prev">
+                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+                            <path d="M7 1L1 7L7 13" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <span class="month-title">2025년 12월</span>
+                    <button class="month-nav-btn next disabled">
+                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+                            <path d="M1 13L7 7L1 1" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Calendar Grid -->
+                <div class="calendar-grid">
+                    <!-- Week Header -->
+                    <div class="calendar-weekdays">
+                        <span>월</span>
+                        <span>화</span>
+                        <span>수</span>
+                        <span>목</span>
+                        <span>금</span>
+                        <span>토</span>
+                        <span>일</span>
+                    </div>
+                    <!-- Calendar Days -->
+                    <div class="calendar-days">
+                        <span class="day other-month">26</span>
+                        <span class="day other-month">27</span>
+                        <span class="day other-month">28</span>
+                        <span class="day other-month">29</span>
+                        <span class="day other-month">30</span>
+                        <span class="day">1</span>
+                        <span class="day">2</span>
+                        <span class="day">3</span>
+                        <span class="day">4</span>
+                        <span class="day">5</span>
+                        <span class="day">6</span>
+                        <span class="day">7</span>
+                        <span class="day">8</span>
+                        <span class="day">9</span>
+                        <span class="day">10</span>
+                        <span class="day">11</span>
+                        <span class="day">12</span>
+                        <span class="day">13</span>
+                        <span class="day">14</span>
+                        <span class="day">15</span>
+                        <span class="day">16</span>
+                        <span class="day">17</span>
+                        <span class="day">18</span>
+                        <span class="day">19</span>
+                        <span class="day">20</span>
+                        <span class="day">21</span>
+                        <span class="day">22</span>
+                        <span class="day">23</span>
+                        <span class="day">24</span>
+                        <span class="day today">25</span>
+                        <span class="day">26</span>
+                        <span class="day">27</span>
+                        <span class="day">28</span>
+                        <span class="day selected">29</span>
+                        <span class="day">30</span>
+                        <span class="day">31</span>
+                        <span class="day other-month">1</span>
+                        <span class="day other-month">2</span>
+                        <span class="day other-month">3</span>
+                        <span class="day other-month">4</span>
+                        <span class="day other-month">5</span>
+                        <span class="day other-month">6</span>
+                    </div>
+                </div>
+
+                <!-- Current Events Section -->
+                <div class="events-section">
+                    <div class="events-header">
+                        <span class="events-title">현재 진행중인 일정</span>
+                        <span class="events-count">5</span>
+                    </div>
+                    
+                    <div class="events-list">
+                        <!-- Event Item 1 -->
+                        <article class="event-card">
+                            <span class="event-date">10</span>
+                            <div class="event-info">
+                                <h3 class="event-title">서울갤러리 개관 기념 전시회</h3>
+                                <div class="event-period">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 4V8L10.67 9.33M14.67 8C14.67 11.68 11.68 14.67 8 14.67C4.32 14.67 1.33 11.68 1.33 8C1.33 4.32 4.32 1.33 8 1.33C11.68 1.33 14.67 4.32 14.67 8Z" stroke="#666" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>2025.12.10. - 2025.12.31</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Event Item 2 -->
+                        <article class="event-card">
+                            <span class="event-date">11</span>
+                            <div class="event-info">
+                                <h3 class="event-title">현대 미술의 새로운 경계</h3>
+                                <div class="event-period">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 4V8L10.67 9.33M14.67 8C14.67 11.68 11.68 14.67 8 14.67C4.32 14.67 1.33 11.68 1.33 8C1.33 4.32 4.32 1.33 8 1.33C11.68 1.33 14.67 4.32 14.67 8Z" stroke="#666" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>2025.12.11. - 2025.12.31</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Event Item 3 -->
+                        <article class="event-card">
+                            <span class="event-date">15</span>
+                            <div class="event-info">
+                                <h3 class="event-title">예술과 기술의 융합</h3>
+                                <div class="event-period">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 4V8L10.67 9.33M14.67 8C14.67 11.68 11.68 14.67 8 14.67C4.32 14.67 1.33 11.68 1.33 8C1.33 4.32 4.32 1.33 8 1.33C11.68 1.33 14.67 4.32 14.67 8Z" stroke="#666" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>2025.12.10. - 2025.12.31</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Event Item 4 -->
+                        <article class="event-card">
+                            <span class="event-date">24</span>
+                            <div class="event-info">
+                                <h3 class="event-title">어린이 미술 체험</h3>
+                                <div class="event-period">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 4V8L10.67 9.33M14.67 8C14.67 11.68 11.68 14.67 8 14.67C4.32 14.67 1.33 11.68 1.33 8C1.33 4.32 4.32 1.33 8 1.33C11.68 1.33 14.67 4.32 14.67 8Z" stroke="#666" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>2025.12.24</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Event Item 5 -->
+                        <article class="event-card">
+                            <span class="event-date">31</span>
+                            <div class="event-info">
+                                <h3 class="event-title">연말 전시회</h3>
+                                <div class="event-period">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 4V8L10.67 9.33M14.67 8C14.67 11.68 11.68 14.67 8 14.67C4.32 14.67 1.33 11.68 1.33 8C1.33 4.32 4.32 1.33 8 1.33C11.68 1.33 14.67 4.32 14.67 8Z" stroke="#666" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>2025.12.31</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <div class="content-area">
+            <!-- Visit Info Section -->
+            <section class="visit-info fade-in-up">
+                <div class="info-group">
+                    <div class="info-icon">
+                        <img src="assets/icon-clock.svg" alt="" style="width: var(---24-to-18, 24px); height: var(---24-to-18, 24px);">
+                    </div>
+                    <div class="info-content">
+                        <h3>관람시간</h3>
+                        <p class="info-highlight">평일 10:00 - 18:00</p>
+                        <span class="info-note">* 주말 및 공휴일 휴관</span>
+                    </div>
+                </div>
+                <div class="info-group">
+                    <div class="info-icon">
+                        <img src="assets/icon-money-free.svg" alt="" style="width: var(---24-to-18, 24px); height: 24px; aspect-ratio: 1/1;">
+                    </div>
+                    <div class="info-content">
+                        <h3>관람료</h3>
+                        <p class="info-highlight">무료</p>
+                    </div>
+                </div>
+                <a href="#" class="direction-btn">
+                    <img src="assets/icon-location.svg" alt="" width="19" height="24">
+                    <span>오시는 길</span>
+                </a>
+            </section>
+
+            <!-- Marquee Banner -->
+            <div class="marquee-wrapper">
+                <div class="marquee">
+                    <div class="marquee-content">
+                        <img src="assets/marquee-banner.svg" alt="" class="marquee-image">
+                        <img src="assets/marquee-banner.svg" alt="" class="marquee-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ======================= -->
+            <!-- FUTURE SEOUL CITY HALL SECTION -->
+            <!-- ======================= -->
+            <section class="future-seoul-section">
+                <header class="section-header">
+                    <h2 class="section-title">미래서울도시관</h2>
+                    <span class="section-subtitle">Future Seoul Urban Hall</span>
+                </header>
+
+                <div class="exhibition-grid">
+                    <!-- Exhibition Card 1 -->
+                    <div class="exhibition-card fade-in-up">
+                        <div class="exhibition-image-wrapper">
+                            <img src="assets/exhibition-future-seoul.png" 
+                                 alt="미래서울관 전시" 
+                                 class="exhibition-image">
+                            <div class="exhibition-header">
+                                <h3 class="exhibition-name">미래서울관</h3>
+                                <button class="exhibition-expand-btn">
+                                    <img src="assets/icon-expand.svg" alt="확대" width="20" height="20">
+                                </button>
+                            </div>
+                            <div class="exhibition-tags">
+                                <span class="tag active">미래관</span>
+                                <span class="tag">서울관</span>
+                                <span class="tag">미래서울관</span>
+                            </div>
+                        </div>
+                        <div class="exhibition-thumbnail">
+                            <img src="assets/exhibition-future-thumbnail.png" alt="미래서울관 썸네일">
+                        </div>
+                    </div>
+
+                    <!-- Exhibition Card 2 -->
+                    <div class="exhibition-card fade-in-up">
+                        <div class="exhibition-thumbnail-top">
+                            <img src="assets/exhibition-world-thumbnail.png" alt="세계도시관 썸네일">
+                        </div>
+                        <div class="exhibition-image-wrapper">
+                            <img src="assets/exhibition-world-main.png" 
+                                 alt="세계도시관 전시" 
+                                 class="exhibition-image">
+                            <div class="exhibition-header">
+                                <h3 class="exhibition-name">세계도시관</h3>
+                                <button class="exhibition-expand-btn">
+                                    <img src="assets/icon-expand.svg" alt="확대" width="20" height="20">
+                                </button>
+                            </div>
+                            <div class="exhibition-tags">
+                                <span class="tag green active">도시관</span>
+                                <span class="tag">세계관</span>
+                                <span class="tag">세계도시관</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rotating Text Animation -->
+            <div class="rotating-text-container">
+                <div class="rotating-text">
+                    <span class="rotating-star">*</span>
+                    <span class="rotating-letters">SEOUL GALLERY SEOUL GALLERY SEOUL GALLERY </span>
+                </div>
+            </div>
+
+            <!-- ======================= -->
+            <!-- VENUE RENTAL SECTION -->
+            <!-- ======================= -->
+            <section class="venue-section fade-in-up">
+                <header class="section-header with-link">
+                    <div class="header-titles">
+                        <h2 class="section-title">대관안내</h2>
+                        <span class="section-subtitle">Venue Rental Information</span>
+                    </div>
+                    <a href="#" class="more-link">
+                        <span>자세히보기</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M1 5.67H10.33M10.33 5.67L5.67 1M10.33 5.67L5.67 10.33" stroke="#444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </header>
+
+                <div class="venue-showcase">
+                    <div class="venue-image-wrapper">
+                        <img src="assets/workshoproom.png" 
+                             alt="공연장" 
+                             class="venue-image">
+                        <div class="venue-overlay"></div>
+                        
+                        <div class="venue-tags">
+                            <span class="tag green active">공연장</span>
+                            <span class="tag outline">워크숍룸</span>
+                            <span class="tag outline">동그라미방</span>
+                            <span class="tag outline">회의실</span>
+                        </div>
+
+                        <div class="venue-info">
+                            <h3 class="venue-title">공연장</h3>
+                            <p class="venue-description">
+                                서울 갤러리는 다양한 장르의 공연과 예술 이벤트가 열리는 공간입니다.<br>
+                                관람객들은 특별한 경험을 통해 문화와 예술을 가까이에서 느낄 수 있습니다.
+                            </p>
+                            <a href="#" class="venue-reserve-btn">
+                                <span>공연장 대관예약</span>
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                    <path d="M1 6.5H12M12 6.5L6.5 1M12 6.5L6.5 12" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= -->
+            <!-- NOTICE SECTION -->
+            <!-- ======================= -->
+            <section class="notice-section fade-in-up">
+                <header class="section-header with-link">
+                    <div class="header-titles">
+                        <h2 class="section-title">공지사항</h2>
+                        <span class="section-subtitle">Notice</span>
+                    </div>
+                    <a href="#" class="more-link">
+                        <span>자세히보기</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M1 5.67H10.33M10.33 5.67L5.67 1M10.33 5.67L5.67 10.33" stroke="#444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </header>
+
+                <div class="notice-list">
+                    <article class="notice-card">
+                        <span class="notice-category">공지사항</span>
+                        <span class="notice-date">2025.12.12</span>
+                        <h3 class="notice-title">2025년 12월 서울갤러리 전시일정안내</h3>
+                    </article>
+                    <article class="notice-card">
+                        <span class="notice-category">공지사항</span>
+                        <span class="notice-date">2025.12.12</span>
+                        <h3 class="notice-title">서울갤러리 대관 및 휴관 안내</h3>
+                    </article>
+                    <article class="notice-card">
+                        <span class="notice-category new">새소식</span>
+                        <span class="notice-date">2025.12.12</span>
+                        <h3 class="notice-title">홈페이지 오픈 이벤트 안내</h3>
+                    </article>
+                </div>
+            </section>
+
+            <!-- ======================= -->
+            <!-- FEATURED EXHIBITION SECTION -->
+            <!-- ======================= -->
+            <section class="featured-exhibition fade-in-up">
+                <div class="featured-content">
+                    <div class="featured-badge">
+                        <span class="badge green">진행중</span>
+                    </div>
+                    <span class="featured-period">2025.12.12 - 2025.12.31</span>
+                    <h2 class="featured-title">미래서울도시전</h2>
+                    <p class="featured-description">
+                        미래서울도시전은 혁신적인 도시 디자인을 탐구하는 전시입니다.<br>
+                        다양한 프로그램과 워크숍이 준비되어 있으니 놓치지 마세요!<br>
+                        전시 관람은 사전 예약제로 운영되며, 주말에는 혼잡할 수 있습니다.<br>
+                        자세한 일정은 공식 웹사이트에서 확인하세요!
+                    </p>
+                    <a href="#" class="featured-link">
+                        <span>자세히보기</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M1 5.67H10.33M10.33 5.67L5.67 1M10.33 5.67L5.67 10.33" stroke="#278352" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="featured-image">
+                    <img src="assets/featured-future-seoul-expo-poster.png" 
+                         alt="미래서울도시전 포스터">
+                </div>
+            </section>
+
+            <!-- ======================= -->
+            <!-- POSTER GALLERY -->
+            <!-- ======================= -->
+            <section class="poster-gallery">
+                <div class="poster-scroll">
+                    <img src="assets/poster-gallery-item.png" alt="전시 포스터 1" class="poster-item">
+                    <img src="assets/poster-gallery-item.png" alt="전시 포스터 2" class="poster-item">
+                    <img src="assets/poster-gallery-item.png" alt="전시 포스터 3" class="poster-item">
+                </div>
+            </section>
+
+            <!-- ======================= -->
+            <!-- PROGRAM SECTION -->
+            <!-- ======================= -->
+            <section class="program-section fade-in-up">
+                <header class="section-header">
+                    <h2 class="section-title">프로그램</h2>
+                    <span class="section-subtitle">Program</span>
+                </header>
+                
+                <div class="program-card">
+                    <h3 class="program-title">2025년 서울시 시민참여예산위원회 위원 공개모집</h3>
+                </div>
+
+                <div class="quick-links">
+                    <a href="#" class="quick-link">서울소식</a>
+                    <a href="#" class="quick-link">응답소</a>
+                    <a href="#" class="quick-link">정보공개</a>
+                    <a href="#" class="quick-link">분야별정보</a>
+                </div>
+            </section>
+
+            <!-- Partner Logos -->
+            <section class="partner-logos">
+                <div class="logo-grid">
+                    <!-- Placeholder for partner logos -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ======================= -->
+    <!-- FOOTER -->
+    <!-- ======================= -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-links">
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">이용약관</a>
+                </div>
+                <address class="footer-address">
+                    서울특별시 중구 세종대로 110 서울특별시청 지하1, 2, 4층
+                </address>
+                <p class="footer-copyright">© 2025 SEOUL GALLERY. All Rights Reserved</p>
+            </div>
+            
+            <div class="footer-bottom">
+                <a href="#" class="footer-contact">서울갤러리 문의하기</a>
+                
+                <div class="newsletter">
+                    <h3 class="newsletter-title">NEWSLETTER</h3>
+                    <p class="newsletter-desc">서울갤러리의 소식과 이야기를 뉴스레터로 받아보세요</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="E-MAIL" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
