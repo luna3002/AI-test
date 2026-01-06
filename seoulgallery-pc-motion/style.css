@@ -738,7 +738,13 @@ ul, ol {
 .marquee-wrapper {
     width: 100%;
     overflow: hidden;
-    margin-top: 100px;
+    margin-top: -110px;
+    height: 220px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .marquee {
@@ -749,12 +755,14 @@ ul, ol {
 
 .marquee-content {
     display: flex;
-    gap: 0;
+    gap: 50px;
 }
 
 .marquee-image {
     flex-shrink: 0;
-    height: auto;
+    height: 180px;
+    width: auto;
+    max-width: none;
 }
 
 @keyframes marquee {
@@ -775,7 +783,9 @@ ul, ol {
 /* ======================= */
 .future-seoul-section {
     padding: 0;
-    background-color: #fafafa;
+    margin-top: 92px;
+    position: relative;
+    z-index: 2;
 }
 
 .section-header {
@@ -783,6 +793,7 @@ ul, ol {
     align-items: center;
     gap: var(--spacing-2xl);
     padding: var(--spacing-custom) var(--spacing-7xl);
+    background-color: #fafafa;
 }
 
 .section-title {
