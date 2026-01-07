@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>서울갤러리 메인</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors */
+            --white: #FFFFFF;
+            --black: #000000;
+            --gray-100: #FAFAFA;
+            --gray-200: #E6E6E6;
+            --gray-250: #DDDDDD;
+            --gray-300: #CCCCCC;
+            --gray-400: #AAAAAA;
+            --gray-600: #666666;
+            --gray-650: #555555;
+            --gray-700: #444444;
+            --gray-850: #222222;
+            --gray-950: #111111;
+            --rose-500: #EE3E79;
+            --rose-600: #D12A5F;
+            --green-400: #45B97C;
+            --green-600: #278352;
+            --yellow-300: #FDB933;
+            --blue-500: #27AAE1;
+            --blue-600: #0c82e9;
+            --dust-700: #344054;
+
+            /* Spacing */
+            --spacing-4: 4px;
+            --spacing-8: 8px;
+            --spacing-12: 12px;
+            --spacing-16: 16px;
+            --spacing-20: 20px;
+            --spacing-24: 24px;
+            --spacing-28: 28px;
+            --spacing-32: 32px;
+            --spacing-40: 40px;
+            --spacing-60: 60px;
+            --spacing-80: 80px;
+
+            /* Border Radius */
+            --radius-m: 20px;
+            --radius-l: 40px;
+            --radius-full: 100px;
+
+            /* Font Sizes */
+            --font-body-s: 15px;
+            --font-body-m: 16px;
+            --font-body-l: 18px;
+            --font-body-xl: 20px;
+            --font-title-xs: 22px;
+            --font-title-s: 24px;
+            --font-title-m: 26px;
+            --font-title-l: 28px;
+            --font-title-xl: 32px;
+            --font-heading-m: 36px;
+            --font-heading-xl: 40px;
+            --font-display-m: 52px;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--white);
+            color: var(--gray-950);
+            letter-spacing: -1px;
+            overflow-x: hidden;
+        }
+
+        /* GNB (Global Navigation Bar) */
+        .gnb {
+            background: var(--blue-600);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-80);
+            height: 48px;
+            width: 1920px;
+        }
+
+        .gnb-left {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-40);
+        }
+
+        .gnb-logo img {
+            height: 27px;
+        }
+
+        .gnb-notice {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-12);
+            color: var(--white);
+            font-size: var(--font-body-s);
+        }
+
+        .gnb-right {
+            display: flex;
+            gap: var(--spacing-12);
+            color: var(--white);
+            font-size: var(--font-body-s);
+        }
+
+        .gnb-right span {
+            cursor: pointer;
+        }
+
+        /* Top Section */
+        .top-section {
+            position: relative;
+            height: 760px;
+            width: 1920px;
+        }
+
+        .visual-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: url('https://www.figma.com/api/mcp/asset/bf092b2b-bfcf-45f8-8238-daebae3e716c') center/cover;
+        }
+
+        .visual-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 288px;
+            background: linear-gradient(to bottom, rgba(16, 24, 40, 0), rgba(16, 24, 40, 0.81));
+        }
+
+        /* Header Menu */
+        .header-menu {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1760px;
+            height: 120px;
+            background: rgba(29, 41, 57, 0.6);
+            backdrop-filter: blur(5px);
+            border-radius: var(--radius-m);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+        }
+
+        .logo-container img {
+            height: 62px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 100px;
+            color: var(--white);
+            font-size: 24px;
+        }
+
+        .nav-menu span {
+            cursor: pointer;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-8) var(--spacing-20);
+            width: 110px;
+            font-size: 18px;
+        }
+
+        /* Carousel Indicator */
+        .carousel-indicator {
+            position: absolute;
+            right: 44px;
+            top: 588px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .carousel-dot.active {
+            width: 12px;
+            height: 30px;
+            background: var(--white);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            display: flex;
+            width: 1920px;
+            position: relative;
+            margin-top: -160px;
+        }
+
+        /* Schedule Section (Left Side) */
+        .schedule-section {
+            width: 560px;
+            min-height: 3950px;
+            background: #f6fbff;
+            border-top-right-radius: 50px;
+            padding: var(--spacing-60);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-28);
+            z-index: 10;
+        }
+
+        .schedule-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .schedule-title h2 {
+            font-size: var(--font-heading-m);
+            font-weight: 700;
+        }
+
+        .calendar-view-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-8);
+            font-size: var(--font-body-xl);
+            color: var(--dust-700);
+        }
+
+        /* Calendar */
+        .calendar-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-20);
+        }
+
+        .calendar-month {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-20);
+            height: 60px;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-m);
+        }
+
+        .calendar-month h3 {
+            font-size: var(--font-title-xs);
+            font-weight: 700;
+        }
+
+        .calendar-month svg {
+            cursor: pointer;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .calendar-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 52px;
+            font-size: var(--font-body-xl);
+            font-weight: 500;
+        }
+
+        .calendar-cell.header {
+            font-weight: 700;
+        }
+
+        .calendar-cell.other-month {
+            color: var(--gray-400);
+        }
+
+        .calendar-cell.today {
+            background: var(--white);
+            border-radius: var(--radius-full);
+            border: 2px solid var(--gray-850);
+            font-weight: 700;
+            box-shadow: 0px 8px 16px 4px rgba(0, 0, 0, 0.16);
+        }
+
+        .calendar-cell.christmas {
+            background: var(--white);
+            border-radius: var(--radius-full);
+            color: var(--gray-950);
+        }
+
+        /* Schedule List */
+        .schedule-list-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-20);
+        }
+
+        .schedule-list-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-4);
+            padding: 0 var(--spacing-12);
+            font-size: var(--font-title-xs);
+        }
+
+        .schedule-list-title h3 {
+            font-weight: 700;
+        }
+
+        .schedule-list-title .count {
+            color: var(--rose-600);
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-20);
+            background: var(--white);
+            padding: var(--spacing-20) var(--spacing-28);
+            border-radius: var(--radius-m);
+            box-shadow: 0px 8px 16px 4px rgba(126, 161, 189, 0.2);
+        }
+
+        .schedule-date {
+            font-size: var(--font-heading-xl);
+            min-width: 60px;
+        }
+
+        .schedule-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-8);
+        }
+
+        .schedule-info h4 {
+            font-size: var(--font-title-xs);
+            font-weight: 400;
+        }
+
+        .schedule-time {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-4);
+            color: var(--gray-600);
+            font-size: var(--font-body-m);
+        }
+
+        /* Right Content Section */
+        .right-content {
+            flex: 1;
+            position: relative;
+        }
+
+        /* Info Section */
+        .info-section {
+            position: absolute;
+            top: 260px;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-80);
+        }
+
+        .info-cards {
+            display: flex;
+            gap: var(--spacing-80);
+        }
+
+        .info-card {
+            display: flex;
+            gap: var(--spacing-12);
+        }
+
+        .info-card-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .info-card-content h4 {
+            font-size: var(--font-title-s);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .info-card-content .main-text {
+            font-size: var(--font-heading-m);
+            font-weight: 300;
+        }
+
+        .info-card-content .sub-text {
+            font-size: var(--font-body-l);
+            color: var(--gray-650);
+        }
+
+        .direction-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-8);
+            border: 1px solid var(--gray-950);
+            border-radius: var(--radius-m);
+            padding: var(--spacing-16) var(--spacing-32);
+            font-size: var(--font-title-s);
+            cursor: pointer;
+            background: transparent;
+        }
+
+        /* Future Seoul Urban Hall Section */
+        .urban-hall-section {
+            position: absolute;
+            top: 450px;
+            left: 0;
+            width: 1360px;
+        }
+
+        .urban-hall-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-24);
+            padding: 33px var(--spacing-80);
+            background: var(--gray-100);
+            height: 100px;
+        }
+
+        .urban-hall-header h2 {
+            font-size: var(--font-title-xl);
+            font-weight: 700;
+        }
+
+        .urban-hall-header .sub {
+            font-size: var(--font-title-l);
+            font-weight: 500;
+            color: var(--gray-300);
+        }
+
+        .urban-hall-content {
+            display: flex;
+            gap: var(--spacing-80);
+            padding: var(--spacing-80);
+        }
+
+        .urban-hall-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-40);
+        }
+
+        .gallery-card {
+            position: relative;
+        }
+
+        .gallery-card-title {
+            display: flex;
+            align-items: center;
+            font-size: var(--font-title-xl);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .gallery-card-image {
+            width: 100%;
+            aspect-ratio: 520/620;
+            overflow: hidden;
+            border-radius: var(--radius-l);
+        }
+
+        .gallery-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-card-image.small {
+            aspect-ratio: 520/146;
+        }
+
+        .gallery-tags {
+            position: absolute;
+            bottom: 16px;
+            right: 25px;
+            display: flex;
+            gap: var(--spacing-8);
+        }
+
+        .gallery-tag {
+            padding: var(--spacing-12) var(--spacing-20);
+            border-radius: var(--radius-full);
+            font-size: var(--font-body-xl);
+            background: var(--white);
+        }
+
+        .gallery-tag.yellow {
+            background: var(--yellow-300);
+        }
+
+        .gallery-tag.green {
+            background: var(--green-600);
+            color: var(--white);
+        }
+
+        /* Flowing Text */
+        .flowing-text {
+            position: absolute;
+            top: 963px;
+            left: 0;
+            width: 1360px;
+            height: 239px;
+            overflow: hidden;
+        }
+
+        .flowing-text img {
+            width: 100%;
+        }
+
+        /* Rolling Circle Decoration */
+        .rolling-circle {
+            position: absolute;
+            top: 21px;
+            left: 1077px;
+            width: 247px;
+            height: 247px;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Program Section */
+        .program-section {
+            position: absolute;
+            top: 1636px;
+            left: 0;
+            width: 1280px;
+        }
+
+        .program-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-24);
+            padding-left: var(--spacing-80);
+            margin-bottom: 27px;
+        }
+
+        .program-title h2 {
+            font-size: var(--font-title-xl);
+            font-weight: 700;
+        }
+
+        .program-title .sub {
+            font-size: var(--font-title-l);
+            color: var(--gray-300);
+        }
+
+        .program-content {
+            background: var(--gray-100);
+            height: 460px;
+            position: relative;
+            display: flex;
+        }
+
+        .program-info {
+            width: 432px;
+            margin-left: 80px;
+            padding-top: 63px;
+        }
+
+        .program-badges {
+            display: flex;
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-40);
+        }
+
+        .badge {
+            padding: var(--spacing-12);
+            border-radius: var(--radius-full);
+            font-size: var(--font-body-m);
+        }
+
+        .badge.yellow {
+            background: var(--yellow-300);
+        }
+
+        .badge.outline {
+            border: 1px solid var(--gray-250);
+            color: var(--gray-600);
+        }
+
+        .program-info h3 {
+            font-size: var(--font-display-m);
+            font-weight: 700;
+            margin-bottom: var(--spacing-20);
+        }
+
+        .program-info p {
+            font-size: var(--font-body-l);
+            color: var(--gray-650);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-20);
+        }
+
+        .btn-detail {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-8);
+            background: var(--gray-950);
+            color: var(--white);
+            padding: var(--spacing-12) 18px;
+            border-radius: 999px;
+            font-size: var(--font-body-l);
+            cursor: pointer;
+            border: none;
+        }
+
+        .program-posters {
+            position: absolute;
+            left: 49.22%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 38px;
+        }
+
+        .program-poster {
+            width: 367px;
+            height: 509px;
+        }
+
+        .program-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .poster-nav-btn {
+            position: absolute;
+            left: 1136px;
+            top: 131px;
+            width: 64px;
+            height: 64px;
+            cursor: pointer;
+        }
+
+        /* Venue Rental Section */
+        .venue-section {
+            position: absolute;
+            top: 2265px;
+            left: 80px;
+            width: 1200px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-20);
+            margin-bottom: var(--spacing-20);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-24);
+        }
+
+        .section-title h2 {
+            font-size: var(--font-title-xl);
+            font-weight: 700;
+        }
+
+        .section-title .sub {
+            font-size: var(--font-title-l);
+            font-weight: 500;
+            color: var(--gray-300);
+        }
+
+        .more-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-8);
+            color: var(--gray-700);
+            font-size: var(--font-body-l);
+            cursor: pointer;
+        }
+
+        .venue-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1120/690;
+            border-radius: var(--radius-l);
+            overflow: hidden;
+        }
+
+        .venue-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .venue-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 256px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+        }
+
+        .venue-tags {
+            position: absolute;
+            bottom: 60px;
+            right: 0;
+            display: flex;
+            gap: var(--spacing-8);
+            z-index: 1;
+        }
+
+        .venue-tag {
+            padding: var(--spacing-12) var(--spacing-20);
+            border-radius: var(--radius-full);
+            font-size: var(--font-body-xl);
+            border: 1px solid var(--gray-950);
+            background: var(--white);
+        }
+
+        .venue-tag.active {
+            background: var(--green-600);
+            color: var(--white);
+            border-color: var(--green-600);
+        }
+
+        .venue-info {
+            position: absolute;
+            bottom: 65px;
+            left: 24px;
+            z-index: 1;
+            max-width: 590px;
+        }
+
+        .venue-info h3 {
+            font-size: var(--font-heading-xl);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: var(--spacing-20);
+        }
+
+        .venue-info p {
+            font-size: var(--font-body-l);
+            color: var(--white);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-20);
+        }
+
+        .venue-info .btn-reserve {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: var(--spacing-16) var(--spacing-20);
+            background: var(--white);
+            border-radius: 999px;
+            font-size: var(--font-body-xl);
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Notice Section */
+        .notice-section {
+            position: absolute;
+            top: 3133px;
+            left: 80px;
+            width: 1200px;
+        }
+
+        .notice-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-20);
+        }
+
+        .notice-item {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-m);
+            padding: var(--spacing-40);
+        }
+
+        .notice-item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-12);
+        }
+
+        .notice-badge {
+            padding: var(--spacing-4) var(--spacing-12);
+            border: 1px solid var(--gray-250);
+            border-radius: var(--radius-m);
+            background: var(--white);
+            font-size: var(--font-body-m);
+            font-weight: 500;
+            color: var(--green-600);
+        }
+
+        .notice-badge.news {
+            color: var(--dust-700);
+        }
+
+        .notice-date {
+            font-size: var(--font-body-m);
+            color: var(--gray-600);
+        }
+
+        .notice-item h4 {
+            font-size: var(--font-title-l);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            top: 4472px;
+            left: 0;
+            width: 1920px;
+            background: var(--gray-950);
+            padding: var(--spacing-60) var(--spacing-80);
+        }
+
+        .footer-content {
+            display: flex;
+            gap: var(--spacing-20);
+        }
+
+        .footer-left {
+            flex: 1;
+            display: flex;
+            gap: var(--spacing-40);
+            align-items: flex-end;
+        }
+
+        .footer-logo img {
+            height: 32px;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--spacing-12);
+            margin-bottom: var(--spacing-20);
+        }
+
+        .footer-link {
+            padding: var(--spacing-8) var(--spacing-16);
+            border: 1px solid var(--white);
+            border-radius: var(--radius-full);
+            color: var(--white);
+            font-size: var(--font-body-m);
+        }
+
+        .footer-address {
+            color: var(--white);
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-20);
+        }
+
+        .footer-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-4);
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-8) var(--spacing-16);
+            border-radius: var(--radius-full);
+            color: var(--white);
+            font-size: var(--font-body-l);
+        }
+
+        .footer-right {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .footer-newsletter h3 {
+            font-size: var(--font-body-l);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .footer-newsletter p {
+            font-size: var(--font-title-m);
+            color: var(--white);
+            margin-bottom: var(--spacing-20);
+        }
+
+        .newsletter-input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            padding: var(--spacing-16) var(--spacing-32);
+            border-radius: var(--radius-full);
+        }
+
+        .newsletter-input input {
+            border: none;
+            outline: none;
+            font-size: var(--font-title-xl);
+            color: var(--gray-600);
+            width: 100%;
+        }
+
+        .newsletter-input button {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-950);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* SVG Icons */
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+        }
+    </style>
+</head>
+<body>
+    <!-- GNB -->
+    <div class="gnb">
+        <div class="gnb-left">
+            <div class="gnb-logo">
+                <img src="https://www.figma.com/api/mcp/asset/c6e90bbd-da1a-4fe0-b86c-2a8ccfed1ad3" alt="서울특별시">
+            </div>
+            <div class="gnb-notice">
+                <span>🔊</span>
+                <span>2025년 서울시 시민참여예산위원회 위원 공개모집</span>
+            </div>
+        </div>
+        <div class="gnb-right">
+            <span>서울소식</span>
+            <span>응답소</span>
+            <span>정보공개</span>
+            <span>분야별정보</span>
+        </div>
+    </div>
+
+    <!-- Top Section with Visual -->
+    <div class="top-section">
+        <div class="visual-image">
+            <div class="visual-gradient"></div>
+        </div>
+
+        <!-- Header Menu -->
+        <div class="header-menu">
+            <div class="logo-container">
+                <img src="https://www.figma.com/api/mcp/asset/e3ed99d6-3127-4278-a84b-ca07f485d8f3" alt="SEOUL GALLERY">
+            </div>
+            <div class="nav-menu">
+                <span>서울갤러리</span>
+                <span>미래서울도시관</span>
+                <span>공간 대관</span>
+                <span>프로그램</span>
+                <span>알림마당</span>
+            </div>
+            <div class="language-selector">
+                <span>한국어</span>
+                <span>▼</span>
+            </div>
+        </div>
+
+        <!-- Carousel Indicator -->
+        <div class="carousel-indicator">
+            <div class="carousel-dot active"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Schedule Section -->
+        <div class="schedule-section">
+            <div class="schedule-title">
+                <h2>서울 갤러리 일정</h2>
+                <div class="calendar-view-btn">
+                    <img src="https://www.figma.com/api/mcp/asset/8d2fbb43-79f0-4795-9d25-1c8e36128ad9" alt="달력" style="width: 16px;">
+                    <span>달력보기</span>
+                </div>
+            </div>
+
+            <!-- Calendar -->
+            <div class="calendar-container">
+                <div class="calendar-month">
+                    <span style="cursor: pointer;">◀</span>
+                    <h3>2025년 12월</h3>
+                    <span style="opacity: 0.4;">▶</span>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-cell header">월</div>
+                    <div class="calendar-cell header">화</div>
+                    <div class="calendar-cell header">수</div>
+                    <div class="calendar-cell header">목</div>
+                    <div class="calendar-cell header">금</div>
+                    <div class="calendar-cell header">토</div>
+                    <div class="calendar-cell header">일</div>
+                    
+                    <div class="calendar-cell other-month">26</div>
+                    <div class="calendar-cell other-month">27</div>
+                    <div class="calendar-cell other-month">28</div>
+                    <div class="calendar-cell other-month">29</div>
+                    <div class="calendar-cell other-month">30</div>
+                    <div class="calendar-cell">1</div>
+                    <div class="calendar-cell">28</div>
+                    
+                    <div class="calendar-cell">3</div>
+                    <div class="calendar-cell">4</div>
+                    <div class="calendar-cell">5</div>
+                    <div class="calendar-cell">6</div>
+                    <div class="calendar-cell">7</div>
+                    <div class="calendar-cell">8</div>
+                    <div class="calendar-cell">9</div>
+                    
+                    <div class="calendar-cell">10</div>
+                    <div class="calendar-cell">11</div>
+                    <div class="calendar-cell">12</div>
+                    <div class="calendar-cell">13</div>
+                    <div class="calendar-cell">14</div>
+                    <div class="calendar-cell">15</div>
+                    <div class="calendar-cell">16</div>
+                    
+                    <div class="calendar-cell">17</div>
+                    <div class="calendar-cell">18</div>
+                    <div class="calendar-cell">19</div>
+                    <div class="calendar-cell">20</div>
+                    <div class="calendar-cell">21</div>
+                    <div class="calendar-cell">22</div>
+                    <div class="calendar-cell">23</div>
+                    
+                    <div class="calendar-cell">24</div>
+                    <div class="calendar-cell christmas">25</div>
+                    <div class="calendar-cell">26</div>
+                    <div class="calendar-cell">27</div>
+                    <div class="calendar-cell">28</div>
+                    <div class="calendar-cell today">29</div>
+                    <div class="calendar-cell">30</div>
+                    
+                    <div class="calendar-cell">31</div>
+                    <div class="calendar-cell other-month">1</div>
+                    <div class="calendar-cell other-month">2</div>
+                    <div class="calendar-cell other-month">3</div>
+                    <div class="calendar-cell other-month">4</div>
+                    <div class="calendar-cell other-month">5</div>
+                    <div class="calendar-cell other-month">6</div>
+                </div>
+            </div>
+
+            <!-- Schedule List -->
+            <div class="schedule-list-section">
+                <div class="schedule-list-title">
+                    <h3>현재 진행중인 일정</h3>
+                    <span class="count">5</span>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-date">10</div>
+                    <div class="schedule-info">
+                        <h4>서울갤러리 개관 기념 전시회</h4>
+                        <div class="schedule-time">
+                            <span>🕐</span>
+                            <span>2025.12.10. - 2025.12.31</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-date">11</div>
+                    <div class="schedule-info">
+                        <h4>현대 미술의 새로운 경계</h4>
+                        <div class="schedule-time">
+                            <span>🕐</span>
+                            <span>2025.12.11. - 2025.12.31</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-date">15</div>
+                    <div class="schedule-info">
+                        <h4>예술과 기술의 융합</h4>
+                        <div class="schedule-time">
+                            <span>🕐</span>
+                            <span>2025.12.10. - 2025.12.31</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-date">24</div>
+                    <div class="schedule-info">
+                        <h4>어린이 미술 체험</h4>
+                        <div class="schedule-time">
+                            <span>🕐</span>
+                            <span>2025.12.24</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-date">31</div>
+                    <div class="schedule-info">
+                        <h4>연말 전시회</h4>
+                        <div class="schedule-time">
+                            <span>🕐</span>
+                            <span>2025.12.31</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="right-content">
+            <!-- Info Section -->
+            <div class="info-section">
+                <div class="info-cards">
+                    <div class="info-card">
+                        <img class="info-card-icon" src="https://www.figma.com/api/mcp/asset/8afe9b3f-be89-4cd2-a691-b9aceff5af81" alt="시계">
+                        <div class="info-card-content">
+                            <h4>관람시간</h4>
+                            <div class="main-text">평일 10:00 - 18:00</div>
+                            <div class="sub-text">* 주말 및 공휴일 휴관</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <img class="info-card-icon" src="https://www.figma.com/api/mcp/asset/859231e4-e99d-4245-806f-0884c27f1ea8" alt="티켓">
+                        <div class="info-card-content">
+                            <h4>관람료</h4>
+                            <div class="main-text">무료</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="direction-btn">
+                    <img src="https://www.figma.com/api/mcp/asset/a51f8325-1277-4ccb-95f8-a8b881dd25b5" alt="위치" style="width: 24px;">
+                    <span>오시는 길</span>
+                </button>
+            </div>
+
+            <!-- Urban Hall Section -->
+            <div class="urban-hall-section">
+                <div class="urban-hall-header">
+                    <h2>미래서울도시관</h2>
+                    <span class="sub">Future Seoul Urban Hall</span>
+                </div>
+                <div class="urban-hall-content">
+                    <div class="urban-hall-column">
+                        <div class="gallery-card">
+                            <div class="gallery-card-title">
+                                <span>미래서울관</span>
+                                <span>↗</span>
+                            </div>
+                            <div class="gallery-card-image">
+                                <img src="https://www.figma.com/api/mcp/asset/5568cd29-54ad-4b11-9e53-5e2c0a9d5572" alt="미래서울관">
+                            </div>
+                            <div class="gallery-tags">
+                                <span class="gallery-tag yellow">미래관</span>
+                                <span class="gallery-tag">서울관</span>
+                                <span class="gallery-tag">미래서울관</span>
+                            </div>
+                        </div>
+                        <div class="gallery-card-image small">
+                            <img src="https://www.figma.com/api/mcp/asset/46e2bc55-f2c6-4e67-b7f4-7644cf06bce3" alt="미래서울관 작은">
+                        </div>
+                    </div>
+                    <div class="urban-hall-column">
+                        <div class="gallery-card-image small">
+                            <img src="https://www.figma.com/api/mcp/asset/ec9220d9-4287-4f9c-8186-d8763d954c53" alt="세계도시관 작은">
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-title">
+                                <span>세계도시관</span>
+                                <span>↗</span>
+                            </div>
+                            <div class="gallery-card-image">
+                                <img src="https://www.figma.com/api/mcp/asset/a91063ee-4b93-4dbd-8e73-9704b962e9d4" alt="세계도시관">
+                            </div>
+                            <div class="gallery-tags">
+                                <span class="gallery-tag green">도시관</span>
+                                <span class="gallery-tag">세계관</span>
+                                <span class="gallery-tag">세계도시관</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flowing Text -->
+                <div class="flowing-text">
+                    <img src="https://www.figma.com/api/mcp/asset/faa907d9-2093-4794-b744-ddda0b2a3aa1" alt="Seoul Gallery">
+                </div>
+            </div>
+
+            <!-- Program Section -->
+            <div class="program-section">
+                <div class="program-title">
+                    <h2>프로그램</h2>
+                    <span class="sub">Program</span>
+                </div>
+                <div class="program-content">
+                    <div class="program-info">
+                        <div class="program-badges">
+                            <span class="badge yellow">진행중</span>
+                            <span class="badge outline">2025.12.12 - 2025.12.31</span>
+                        </div>
+                        <h3>미래서울도시전</h3>
+                        <p>미래서울도시전은 혁신적인 도시 디자인을 탐구하는 전시입니다.<br>
+                        다양한 프로그램과 워크숍이 준비되어 있으니 놓치지 마세요!<br>
+                        전시 관람은 사전 예약제로 운영되며, 주말에는 혼잡할 수 있습니다.<br>
+                        자세한 일정은 공식 웹사이트에서 확인하세요!</p>
+                        <button class="btn-detail">
+                            <span>자세히보기</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                    <div class="program-posters">
+                        <div class="program-poster">
+                            <img src="https://www.figma.com/api/mcp/asset/e954869a-73e3-4671-bcfc-acfb8fc21dae" alt="포스터1">
+                        </div>
+                        <div class="program-poster">
+                            <img src="https://www.figma.com/api/mcp/asset/dedb68bd-dd2c-4058-a544-c3429b226c84" alt="포스터2">
+                        </div>
+                        <div class="program-poster">
+                            <img src="https://www.figma.com/api/mcp/asset/abafb62b-1fc0-424c-bf3b-7dc194e2965e" alt="포스터3">
+                        </div>
+                    </div>
+                    <img class="poster-nav-btn" src="https://www.figma.com/api/mcp/asset/c6e90bbd-da1a-4fe0-b86c-2a8ccfed1ad3" alt="다음" style="display:none;">
+                </div>
+            </div>
+
+            <!-- Venue Section -->
+            <div class="venue-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>대관안내</h2>
+                        <span class="sub">Venue Rental Information</span>
+                    </div>
+                    <div class="more-btn">
+                        <span>자세히보기</span>
+                        <span>→</span>
+                    </div>
+                </div>
+                <div class="venue-image">
+                    <img src="https://www.figma.com/api/mcp/asset/d87c47a6-6792-4c93-bf27-abed4e71bcfb" alt="워크숍룸">
+                    <div class="venue-tags">
+                        <span class="venue-tag active">워크숍룸</span>
+                        <span class="venue-tag">동그라미방</span>
+                        <span class="venue-tag">회의실1</span>
+                        <span class="venue-tag">회의실2</span>
+                    </div>
+                    <div class="venue-info">
+                        <h3>워크숍룸</h3>
+                        <p>서울 갤러리는 다양한 장르의 공연과 예술 이벤트가 열리는 공간입니다.<br>
+                        관람객들은 특별한 경험을 통해 문화와 예술을 가까이에서 느낄 수 있습니다.</p>
+                        <button class="btn-reserve">
+                            <span>워크숍룸 대관예약</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notice Section -->
+            <div class="notice-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>공지사항</h2>
+                        <span class="sub">Notice</span>
+                    </div>
+                    <div class="more-btn">
+                        <span>자세히보기</span>
+                        <span>→</span>
+                    </div>
+                </div>
+                <div class="notice-list">
+                    <div class="notice-item">
+                        <div class="notice-item-header">
+                            <span class="notice-badge">공지사항</span>
+                            <span class="notice-date">2025.12.12</span>
+                        </div>
+                        <h4>2025년 12월 서울갤러리 전시일정안내</h4>
+                    </div>
+                    <div class="notice-item">
+                        <div class="notice-item-header">
+                            <span class="notice-badge">공지사항</span>
+                            <span class="notice-date">2025.12.12</span>
+                        </div>
+                        <h4>서울갤러리 대관 및 휴관 안내</h4>
+                    </div>
+                    <div class="notice-item">
+                        <div class="notice-item-header">
+                            <span class="notice-badge news">새소식</span>
+                            <span class="notice-date">2025.12.12</span>
+                        </div>
+                        <h4>홈페이지 오픈 이벤트 안내</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <img src="https://www.figma.com/api/mcp/asset/32304643-3a59-4a58-8488-c9a91409682b" alt="SEOUL GALLERY" style="height: 32px;">
+                </div>
+                <div class="footer-info">
+                    <div class="footer-links">
+                        <span class="footer-link">개인정보처리방침</span>
+                        <span class="footer-link">이용약관</span>
+                    </div>
+                    <div class="footer-address">
+                        서울특별시 중구 세종대로 110 서울특별시청 지하1, 2, 4층 © 2025 SEOUL GALLERY. All Rights Reserved
+                    </div>
+                    <div class="footer-contact">
+                        <span>서울갤러리 문의하기</span>
+                        <span>→</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-newsletter">
+                    <h3>NEWSLETTER</h3>
+                    <p>서울갤러리의 소식과 이야기를 뉴스레터로 받아보세요</p>
+                    <div class="newsletter-input">
+                        <input type="email" placeholder="E-MAIL">
+                        <button>→</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

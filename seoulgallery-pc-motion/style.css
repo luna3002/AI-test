@@ -168,6 +168,8 @@
 .info-icon img,
 .direction-btn img {
     object-fit: contain;
+    width: var(---24-to-18);
+    height: var(---24-to-18);
 }
 
 /* ======================= */
