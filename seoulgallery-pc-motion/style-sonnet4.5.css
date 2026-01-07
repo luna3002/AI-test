@@ -1,0 +1,1206 @@
+/* ============================================
+   Seoul Gallery - Modern CSS
+   깨끗하고 유지보수 가능한 스타일시트
+   ============================================ */
+
+/* ===== 폰트 정의 ===== */
+@font-face {
+  font-family: 'SeoulNotice';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2505-1@1.0/SeoulAlrimTTF-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SeoulNotice';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2505-1@1.0/SeoulAlrimTTF-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ===== CSS 리셋 및 기본 설정 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'SeoulNotice', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #111;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ===== 메인 컨테이너 ===== */
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ===== 히어로 섹션 ===== */
+.hero-section {
+  width: 100%;
+  height: 760px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 48px;
+}
+
+/* 히어로 배경 */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: zoomIn 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* 그라디언트 오버레이 */
+.hero-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 288px;
+  background: linear-gradient(to bottom, rgba(16, 24, 40, 0), rgba(16, 24, 40, 0.808));
+  pointer-events: none;
+}
+
+/* 플로팅 장식 요소 */
+.floating-element {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-element.left-bottom {
+  left: 560px;
+  bottom: 0;
+  animation-delay: 0s;
+}
+
+.floating-element.right-bottom {
+  left: 0;
+  bottom: 208px;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* 히어로 텍스트 */
+.hero-text {
+  position: absolute;
+  right: 79px;
+  top: 560px;
+  text-align: right;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: 60px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.hero-subtitle {
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+/* ===== 네비게이션 ===== */
+.main-navigation {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1760px;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  background-color: rgba(29, 41, 57, 0.6);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  z-index: 100;
+  animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* 로고 */
+.nav-logo {
+  width: 160px;
+  height: 62px;
+  position: relative;
+}
+
+.logo-top {
+  position: absolute;
+  left: 0.69%;
+  right: 25.2%;
+  top: 0;
+  bottom: 56.95%;
+}
+
+.logo-bottom {
+  position: absolute;
+  left: 0.01%;
+  right: 0;
+  top: 56.95%;
+  bottom: 0.01%;
+}
+
+/* 네비게이션 메뉴 */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  list-style: none;
+}
+
+.nav-menu li a {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+  white-space: nowrap;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-menu li a.active {
+  font-weight: 700;
+}
+
+.nav-menu li a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* 언어 선택기 */
+.language-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 20px;
+  background-color: #fff;
+  color: #111;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  transition: transform 0.3s ease;
+}
+
+.language-selector:hover {
+  transform: scale(1.05);
+}
+
+.language-selector img {
+  width: 18px;
+  height: 18px;
+}
+
+/* ===== 콘텐츠 섹션 ===== */
+.content-section {
+  width: 100%;
+  padding-top: 600px;
+  display: flex;
+  position: relative;
+}
+
+/* ===== 캘린더 사이드바 ===== */
+.calendar-sidebar {
+  width: 560px;
+  position: sticky;
+  top: 0;
+  height: fit-content;
+  background-color: #f6fbff;
+  border-top-right-radius: 50px;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* 사이드바 헤더 */
+.sidebar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.sidebar-header h2 {
+  flex: 1;
+  font-size: 36px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -1px;
+}
+
+.calendar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  color: #344054;
+  font-size: 20px;
+  letter-spacing: -1px;
+  transition: transform 0.3s ease;
+}
+
+.calendar-toggle:hover {
+  transform: translateX(5px);
+}
+
+.calendar-toggle img {
+  width: 14px;
+  height: 16px;
+}
+
+/* 월 네비게이션 */
+.month-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  border: 1px solid #e6e6e6;
+  border-radius: 20px;
+}
+
+.nav-arrow {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-arrow:not(.disabled):hover {
+  transform: scale(1.2);
+}
+
+.nav-arrow.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.nav-arrow.prev svg {
+  transform: rotate(180deg);
+}
+
+.nav-arrow svg {
+  width: 6px;
+  height: 12px;
+}
+
+.current-month {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -1px;
+}
+
+/* 캘린더 그리드 */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  height: 320px;
+  gap: 0;
+}
+
+.calendar-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #444;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 100px;
+  position: relative;
+}
+
+.calendar-day.header {
+  font-family: 'SeoulNotice', sans-serif;
+  font-weight: 700;
+  color: #111;
+  cursor: default;
+  pointer-events: none;
+}
+
+.calendar-day.prev-month,
+.calendar-day.next-month {
+  color: #aaa;
+  font-weight: 500;
+}
+
+.calendar-day.highlight {
+  background-color: #fff;
+}
+
+.calendar-day.selected {
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 4px rgba(0, 0, 0, 0.16);
+  border: 2px solid #222;
+  color: #222;
+  font-weight: 400;
+  transform: scale(1.1);
+}
+
+.calendar-day:not(.header):not(.prev-month):not(.next-month):not(.selected):hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+/* 이벤트 헤더 */
+.events-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 12px;
+}
+
+.events-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -1px;
+}
+
+.events-count {
+  font-size: 22px;
+  font-weight: 400;
+  color: #d12a5f;
+  letter-spacing: -1px;
+}
+
+/* 이벤트 리스트 */
+.events-list {
+  width: 514px;
+  height: 396px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 10px;
+}
+
+/* 스크롤바 스타일 */
+.events-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.events-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.events-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.events-list::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* 이벤트 카드 */
+.event-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 28px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 8px 16px 4px rgba(126, 161, 189, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 12px 24px 6px rgba(126, 161, 189, 0.3);
+}
+
+.event-date {
+  font-size: 40px;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: -1px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.event-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.event-title {
+  font-size: 22px;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: -1px;
+  line-height: 1.3;
+}
+
+.event-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #666;
+  font-size: 16px;
+  letter-spacing: -1px;
+}
+
+.event-time svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== 메인 콘텐츠 ===== */
+.main-content {
+  flex: 1;
+  padding: 0;
+  position: relative;
+}
+
+/* 정보 카드 섹션 */
+.info-cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+  margin-top: 260px;
+  margin-bottom: 80px;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.info-card img {
+  width: 24px;
+  height: auto;
+  margin-top: 8px;
+}
+
+.info-content h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.info-main {
+  font-size: 36px;
+  font-weight: 300;
+  color: #111;
+  letter-spacing: -1px;
+  margin-bottom: 2px;
+}
+
+.info-sub {
+  font-size: 18px;
+  font-weight: 400;
+  color: #555;
+  letter-spacing: -1px;
+}
+
+/* 오시는 길 버튼 */
+.directions-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border: 1px solid #111;
+  border-radius: 20px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: -1px;
+  transition: all 0.3s ease;
+}
+
+.directions-button:hover {
+  background-color: #111;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.directions-button img {
+  width: 24px;
+  height: 24px;
+}
+
+/* ===== 원형 텍스트 애니메이션 ===== */
+.circular-text-container {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: -4136px;
+  top: -1274px;
+  pointer-events: none;
+}
+
+.circular-text {
+  width: 100%;
+  height: 100%;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.circular-text-path {
+  font-size: 15px;
+  font-weight: 700;
+  fill: #111;
+  letter-spacing: 2px;
+}
+
+/* ===== 미래서울도시관 섹션 ===== */
+.urban-hall-section {
+  width: 1280px;
+  margin: 0 0 80px 0;
+  padding: 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+  margin-bottom: 40px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.section-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -1px;
+}
+
+.section-subtitle {
+  font-size: 28px;
+  font-weight: 500;
+  color: #ccc;
+  letter-spacing: -1px;
+}
+
+.details-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  color: #444;
+  letter-spacing: -1px;
+  transition: all 0.3s ease;
+}
+
+.details-link:hover {
+  color: #111;
+  transform: translateX(5px);
+}
+
+.details-link svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* 도시관 콘텐츠 */
+.urban-hall-content {
+  display: flex;
+  gap: 80px;
+  padding: 80px;
+  background-color: #fafafa;
+}
+
+.hall-card {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hall-image-wrapper {
+  aspect-ratio: 520 / 620;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.hall-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hall-card:hover .hall-image {
+  transform: scale(1.1);
+}
+
+/* 홀 태그 */
+.hall-tags {
+  position: absolute;
+  right: 25px;
+  bottom: 16.69px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hall-tag {
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: -1px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hall-tag.active {
+  background-color: #fdb933;
+}
+
+.hall-tag.active.green {
+  background-color: #278352;
+  color: #fff;
+}
+
+.hall-tag:hover {
+  transform: scale(1.05);
+}
+
+/* 홀 타이틀 오버레이 */
+.hall-title-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.hall-title-overlay h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -1px;
+}
+
+.hall-title-overlay img {
+  width: 40px;
+  height: 40px;
+}
+
+/* 홀 설명 */
+.hall-description {
+  aspect-ratio: 520 / 146;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hall-description.center {
+  aspect-ratio: 520 / 146;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.description-bg,
+.description-center {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ===== 대관 안내 섹션 ===== */
+.rental-section {
+  width: 1200px;
+  margin: 80px 0 80px 80px;
+}
+
+.rental-image-container {
+  aspect-ratio: 1120 / 690;
+  position: relative;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.rental-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rental-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 256px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  opacity: 0.5;
+}
+
+/* 장소 탭 */
+.venue-tabs {
+  position: absolute;
+  right: 0;
+  bottom: 60.29px;
+  display: flex;
+  gap: 8px;
+  padding: 20px;
+}
+
+.venue-tab {
+  padding: 16px 20px;
+  border: 1px solid #111;
+  border-radius: 100px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #111;
+  background-color: transparent;
+  letter-spacing: -1px;
+  transition: all 0.3s ease;
+}
+
+.venue-tab.active {
+  background-color: #278352;
+  color: #fff;
+  border-color: #278352;
+}
+
+.venue-tab:hover {
+  transform: scale(1.05);
+}
+
+/* 장소 정보 카드 */
+.venue-info-card {
+  position: absolute;
+  left: 2.14%;
+  bottom: 65.29px;
+  aspect-ratio: 590 / 201;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.venue-info-card h3 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.venue-info-card p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -1px;
+  line-height: 1.6;
+}
+
+/* 예약 버튼 */
+.reserve-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 20px;
+  background-color: #fff;
+  border-radius: 100px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: -1px;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.reserve-button:hover {
+  transform: translateX(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.reserve-button svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* ===== 공지사항 섹션 ===== */
+.notice-section {
+  width: 1200px;
+  margin: 80px 0 80px 80px;
+}
+
+.notice-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.notice-card {
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.notice-card:hover {
+  border-color: #278352;
+  transform: translateX(10px);
+  box-shadow: 0 4px 12px rgba(39, 131, 82, 0.1);
+}
+
+.notice-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #278352;
+  letter-spacing: -1px;
+  width: fit-content;
+}
+
+.notice-card h3 {
+  font-size: 28px;
+  font-weight: 500;
+  color: #111;
+  letter-spacing: -1px;
+  line-height: 1.6;
+}
+
+.notice-date {
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  letter-spacing: -1px;
+  line-height: 1.6;
+}
+
+/* ===== 푸터 ===== */
+.main-footer {
+  width: 100%;
+  height: 267px;
+  background-color: #f1f1f1;
+  margin-top: 100px;
+}
+
+.footer-content {
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.footer-logo-top {
+  width: 105px;
+  height: auto;
+}
+
+.footer-logo-bottom {
+  width: auto;
+  height: 26.731px;
+}
+
+.footer-info {
+  display: flex;
+  gap: 60px;
+}
+
+.footer-address,
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-icon {
+  width: 18px;
+  height: 18px;
+  filter: invert(1);
+}
+
+.footer-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+  letter-spacing: -1px;
+  margin-bottom: 4px;
+}
+
+.footer-info p {
+  font-size: 15px;
+  font-weight: 400;
+  color: #666;
+  letter-spacing: -1px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #111;
+}
+
+.footer-links .separator {
+  color: #ccc;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: #999;
+  letter-spacing: -1px;
+}
+
+/* ===== 반응형 디자인 ===== */
+@media (max-width: 1920px) {
+  .main-navigation {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1440px) {
+  .content-section {
+    flex-direction: column;
+  }
+  
+  .calendar-sidebar {
+    width: 100%;
+    position: relative;
+    border-radius: 0;
+  }
+  
+  .urban-hall-section,
+  .rental-section,
+  .notice-section {
+    width: 100%;
+    margin-left: 0;
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 500px;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .main-navigation {
+    width: 95%;
+    padding: 0 20px;
+  }
+  
+  .nav-menu {
+    gap: 20px;
+  }
+  
+  .nav-menu li a {
+    font-size: 16px;
+  }
+  
+  .info-cards {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  
+  .urban-hall-content {
+    flex-direction: column;
+  }
+}
+
+/* ===== 스크롤 애니메이션 ===== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== 접근성 개선 ===== */
+*:focus-visible {
+  outline: 2px solid #278352;
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #278352;
+  outline-offset: 4px;
+}
+
+/* ===== 프린트 스타일 ===== */
+@media print {
+  .main-navigation,
+  .floating-element,
+  .circular-text-container {
+    display: none;
+  }
+  
+  .hero-section {
+    height: auto;
+    page-break-after: always;
+  }
+  
+  body {
+    background: white;
+  }
+}
