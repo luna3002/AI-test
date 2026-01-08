@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initHeaderScroll();
     initCalendar();
-    initRotatingText();
+    // initRotatingText(); // Disabled - Using SVG image instead
     initMarquee();
     initTabInteractions();
     initSmoothScroll();

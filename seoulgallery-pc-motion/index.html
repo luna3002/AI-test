@@ -275,20 +275,31 @@
             <!-- ======================= -->
             <section class="future-seoul-section">
                 <header class="section-header">
-                    <h2 class="section-title">미래서울도시관</h2>
-                    <span class="section-subtitle">Future Seoul Urban Hall</span>
+                    <div>
+                        <h2 class="section-title">미래서울도시관</h2>
+                        <span class="section-subtitle">Future Seoul Urban Hall</span>
+                    </div>
+                    <div class="rotating-text-container">
+                        <img src="assets/rotatingtext.svg" alt="서울갤러리" class="rotating-text-image">
+                    </div>
                 </header>
 
                 <div class="exhibition-grid">
                     <!-- Exhibition Card 1 -->
                     <div class="exhibition-card fade-in-up">
                         <div class="exhibition-image-wrapper">
-                            <img src="assets/exhibition-future-seoul.png" alt="미래서울관 전시" class="exhibition-image">
+                            <div class="exhibition-image-container">
+                                <img src="assets/exhibition-future-seoul.png" alt="미래서울관 전시" class="exhibition-image">
+                            </div>
                             <div class="exhibition-header">
-                                <h3 class="exhibition-name">미래서울관</h3>
-                                <button class="exhibition-expand-btn">
-                                    <img src="assets/icon-expand.svg" alt="확대" width="20" height="20">
-                                </button>
+                                <div class="exhibition-header-content">
+                                    <h3 class="exhibition-name">미래서울관</h3>
+                                    <button class="exhibition-expand-btn">
+                                        <img src="assets/icon-expand.svg" alt="확대" width="20" height="20">
+                                    </button>
+                                </div>
+                                <img src="assets/imground-right.svg" alt="" class="header-bg-right">
+                                <img src="assets/imground-left.svg" alt="" class="header-bg-left-bottom">
                             </div>
                             <div class="exhibition-tags">
                                 <span class="tag active">미래관</span>
@@ -307,14 +318,20 @@
                             <img src="assets/exhibition-world-thumbnail.png" alt="세계도시관 썸네일">
                         </div>
                         <div class="exhibition-image-wrapper">
-                            <img src="assets/exhibition-world-main.png" 
-                                 alt="세계도시관 전시" 
-                                 class="exhibition-image">
+                            <div class="exhibition-image-container">
+                                <img src="assets/exhibition-world-main.png" 
+                                     alt="세계도시관 전시" 
+                                     class="exhibition-image">
+                            </div>
                             <div class="exhibition-header">
-                                <h3 class="exhibition-name">세계도시관</h3>
-                                <button class="exhibition-expand-btn">
-                                    <img src="assets/icon-expand.svg" alt="확대" width="20" height="20">
-                                </button>
+                                <div class="exhibition-header-content">
+                                    <h3 class="exhibition-name">세계도시관</h3>
+                                    <button class="exhibition-expand-btn">
+                                        <img src="assets/icon-expand.svg" alt="확대" width="20" height="20">
+                                    </button>
+                                </div>
+                                <img src="assets/imground-right.svg" alt="" class="header-bg-right">
+                                <img src="assets/imground-left.svg" alt="" class="header-bg-left-bottom">
                             </div>
                             <div class="exhibition-tags">
                                 <span class="tag green active">도시관</span>
@@ -335,13 +352,53 @@
                 </div>
             </div>
 
-            <!-- Rotating Text Animation -->
-            <div class="rotating-text-container">
-                <div class="rotating-text">
-                    <span class="rotating-star">*</span>
-                    <span class="rotating-letters">SEOUL GALLERY SEOUL GALLERY SEOUL GALLERY </span>
+            <!-- ======================= -->
+            <!-- PROGRAM SECTION -->
+            <!-- ======================= -->
+            <section class="program-section fade-in-up">
+                <header class="section-header">
+                    <h2 class="section-title">프로그램</h2>
+                    <span class="section-subtitle">Program</span>
+                </header>
+                
+                <div class="program-content">
+                    <div class="featured-exhibition">
+                        <div class="featured-content">
+                            <div class="featured-badges">
+                                <span class="badge yellow">진행중</span>
+                                <span class="badge outline">2025.12.12 - 2025.12.31</span>
+                            </div>
+                            <h2 class="featured-title">미래서울도시전</h2>
+                            <p class="featured-description">
+                                미래서울도시전은 혁신적인 도시 디자인을 탐구하는 전시입니다.<br>
+                                다양한 프로그램과 워크숍이 준비되어 있으니 놓치지 마세요!<br>
+                                전시 관람은 사전 예약제로 운영되며, 주말에는 혼잡할 수 있습니다.<br>
+                                자세한 일정은 공식 웹사이트에서 확인하세요!
+                            </p>
+                            <a href="#" class="featured-link">
+                                <span>자세히보기</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M1 7.67H14.33M14.33 7.67L9.67 3M14.33 7.67L9.67 12.33" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="poster-gallery">
+                            <div class="poster-scroll">
+                                <img src="assets/poster-gallery-item.png" alt="전시 포스터 1" class="poster-item">
+                                <img src="assets/poster-gallery-item.png" alt="전시 포스터 2" class="poster-item">
+                                <img src="assets/poster-gallery-item.png" alt="전시 포스터 3" class="poster-item">
+                                <img src="assets/poster-gallery-item.png" alt="전시 포스터 4" class="poster-item">
+                            </div>
+                            <button class="poster-nav-btn" aria-label="다음 포스터">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <circle cx="32" cy="32" r="32" fill="white"/>
+                                    <path d="M26 22L36 32L26 42" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
 
             <!-- ======================= -->
             <!-- VENUE RENTAL SECTION -->
@@ -368,20 +425,20 @@
                         <div class="venue-overlay"></div>
                         
                         <div class="venue-tags">
-                            <span class="tag green active">공연장</span>
-                            <span class="tag outline">워크숍룸</span>
+                            <span class="tag green active">워크숍룸</span>
                             <span class="tag outline">동그라미방</span>
-                            <span class="tag outline">회의실</span>
+                            <span class="tag outline">회의실1</span>
+                            <span class="tag outline">회의실2</span>
                         </div>
 
                         <div class="venue-info">
-                            <h3 class="venue-title">공연장</h3>
+                            <h3 class="venue-title">워크숍룸</h3>
                             <p class="venue-description">
-                                서울 갤러리는 다양한 장르의 공연과 예술 이벤트가 열리는 공간입니다.<br>
+                                서울 갤러리는 다양한 장르의 공연과 예술 이벤트가 열리는 공간입니다. <br>
                                 관람객들은 특별한 경험을 통해 문화와 예술을 가까이에서 느낄 수 있습니다.
                             </p>
                             <a href="#" class="venue-reserve-btn">
-                                <span>공연장 대관예약</span>
+                                <span>워크숍룸 대관예약</span>
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                                     <path d="M1 6.5H12M12 6.5L6.5 1M12 6.5L6.5 12" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -410,71 +467,27 @@
 
                 <div class="notice-list">
                     <article class="notice-card">
-                        <span class="notice-category">공지사항</span>
-                        <span class="notice-date">2025.12.12</span>
+                        <div class="notice-header">
+                            <span class="notice-category">공지사항</span>
+                            <span class="notice-date">2025.12.12</span>
+                        </div>
                         <h3 class="notice-title">2025년 12월 서울갤러리 전시일정안내</h3>
                     </article>
                     <article class="notice-card">
-                        <span class="notice-category">공지사항</span>
-                        <span class="notice-date">2025.12.12</span>
+                        <div class="notice-header">
+                            <span class="notice-category">공지사항</span>
+                            <span class="notice-date">2025.12.12</span>
+                        </div>
                         <h3 class="notice-title">서울갤러리 대관 및 휴관 안내</h3>
                     </article>
                     <article class="notice-card">
-                        <span class="notice-category new">새소식</span>
-                        <span class="notice-date">2025.12.12</span>
+                        <div class="notice-header">
+                            <span class="notice-category new">새소식</span>
+                            <span class="notice-date">2025.12.12</span>
+                        </div>
                         <h3 class="notice-title">홈페이지 오픈 이벤트 안내</h3>
                     </article>
                 </div>
-            </section>
-
-            <!-- ======================= -->
-            <!-- FEATURED EXHIBITION SECTION -->
-            <!-- ======================= -->
-            <section class="featured-exhibition fade-in-up">
-                <div class="featured-content">
-                    <div class="featured-badge">
-                        <span class="badge green">진행중</span>
-                    </div>
-                    <span class="featured-period">2025.12.12 - 2025.12.31</span>
-                    <h2 class="featured-title">미래서울도시전</h2>
-                    <p class="featured-description">
-                        미래서울도시전은 혁신적인 도시 디자인을 탐구하는 전시입니다.<br>
-                        다양한 프로그램과 워크숍이 준비되어 있으니 놓치지 마세요!<br>
-                        전시 관람은 사전 예약제로 운영되며, 주말에는 혼잡할 수 있습니다.<br>
-                        자세한 일정은 공식 웹사이트에서 확인하세요!
-                    </p>
-                    <a href="#" class="featured-link">
-                        <span>자세히보기</span>
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                            <path d="M1 5.67H10.33M10.33 5.67L5.67 1M10.33 5.67L5.67 10.33" stroke="#278352" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="featured-image">
-                    <img src="assets/featured-future-seoul-expo-poster.png" 
-                         alt="미래서울도시전 포스터">
-                </div>
-            </section>
-
-            <!-- ======================= -->
-            <!-- POSTER GALLERY -->
-            <!-- ======================= -->
-            <section class="poster-gallery">
-                <div class="poster-scroll">
-                    <img src="assets/poster-gallery-item.png" alt="전시 포스터 1" class="poster-item">
-                    <img src="assets/poster-gallery-item.png" alt="전시 포스터 2" class="poster-item">
-                    <img src="assets/poster-gallery-item.png" alt="전시 포스터 3" class="poster-item">
-                </div>
-            </section>
-
-            <!-- ======================= -->
-            <!-- PROGRAM SECTION -->
-            <!-- ======================= -->
-            <section class="program-section fade-in-up">
-                <header class="section-header">
-                    <h2 class="section-title">프로그램</h2>
-                    <span class="section-subtitle">Program</span>
-                </header>
             </section>
 
             <!-- Partner Logos -->
@@ -491,29 +504,35 @@
     <!-- ======================= -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-top">
-                <div class="footer-links">
-                    <a href="#">개인정보처리방침</a>
-                    <a href="#">이용약관</a>
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <img src="assets/footer-logo.svg" alt="서울갤러리 로고">
                 </div>
-                <address class="footer-address">
-                    서울특별시 중구 세종대로 110 서울특별시청 지하1, 2, 4층
-                </address>
-                <p class="footer-copyright">© 2025 SEOUL GALLERY. All Rights Reserved</p>
+                <div class="footer-info">
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">개인정보처리방침</a>
+                        <a href="#" class="footer-link">이용약관</a>
+                    </div>
+                    <address class="footer-address">
+                        서울특별시 중구 세종대로 110 서울특별시청 지하1, 2, 4층 © 2025 SEOUL GALLERY. All Rights Reserved
+                    </address>
+                    <a href="#" class="footer-contact">
+                        <span>서울갤러리 문의하기</span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 3L6 9L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
             
-            <div class="footer-bottom">
-                <a href="#" class="footer-contact">서울갤러리 문의하기</a>
-                
+            <div class="footer-right">
                 <div class="newsletter">
                     <h3 class="newsletter-title">NEWSLETTER</h3>
                     <p class="newsletter-desc">서울갤러리의 소식과 이야기를 뉴스레터로 받아보세요</p>
                     <form class="newsletter-form">
                         <input type="email" placeholder="E-MAIL" class="newsletter-input">
                         <button type="submit" class="newsletter-btn" title="뉴스레터 구독하기">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <img src="assets/arrow-narrow-right.svg" alt="뉴스레터 구독 아이콘">
                         </button>
                     </form>
                 </div>
