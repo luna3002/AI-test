@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMarquee();
     initTabInteractions();
     initSmoothScroll();
+    initExhibitionTabs();
 });
 
 // ======================= //
@@ -512,6 +513,87 @@ document.body.insertBefore(skipLink, document.body.firstChild);
 const mainContent = document.querySelector('.main-content');
 if (mainContent) {
     mainContent.id = 'main-content';
+}
+
+// ======================= //
+// EXHIBITION TAB SWITCHER
+// ======================= //
+function initExhibitionTabs() {
+    const exhibitionCards = document.querySelectorAll('.exhibition-card[data-exhibition="future-seoul"]');
+    
+    exhibitionCards.forEach(card => {
+        const tags = card.querySelectorAll('.exhibition-tags .tag');
+        const images = card.querySelectorAll('.exhibition-image');
+        const names = card.querySelectorAll('.exhibition-name');
+        
+        let autoPlayInterval;
+        let currentIndex = 0;
+        const totalTabs = tags.length;
+        
+        // 탭 전환 함수
+        function switchTab(tabName) {
+            // 모든 active 클래스 제거
+            tags.forEach(tag => tag.classList.remove('active'));
+            images.forEach(img => img.classList.remove('active'));
+            names.forEach(name => name.style.display = 'none');
+            
+            // 선택된 탭에 active 클래스 추가
+            const selectedTag = card.querySelector(`.tag[data-tab="${tabName}"]`);
+            const selectedImage = card.querySelector(`.exhibition-image[data-tab="${tabName}"]`);
+            const selectedName = card.querySelector(`.exhibition-name[data-tab="${tabName}"]`);
+            
+            if (selectedTag) selectedTag.classList.add('active');
+            if (selectedImage) selectedImage.classList.add('active');
+            if (selectedName) selectedName.style.display = 'block';
+            
+            // 현재 인덱스 업데이트
+            tags.forEach((tag, index) => {
+                if (tag.dataset.tab === tabName) {
+                    currentIndex = index;
+                }
+            });
+        }
+        
+        // 자동 재생
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalTabs;
+                const nextTab = tags[currentIndex].dataset.tab;
+                switchTab(nextTab);
+            }, 3000); // 3초마다 전환
+        }
+        
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+            }
+        }
+        
+        // 태그 이벤트 리스너
+        tags.forEach(tag => {
+            // 호버 시 전환
+            tag.addEventListener('mouseenter', () => {
+                stopAutoPlay();
+                switchTab(tag.dataset.tab);
+            });
+            
+            // 클릭 시 전환
+            tag.addEventListener('click', () => {
+                stopAutoPlay();
+                switchTab(tag.dataset.tab);
+                startAutoPlay();
+            });
+        });
+        
+        // 카드에서 마우스가 나가면 자동 재생 재시작
+        card.addEventListener('mouseleave', () => {
+            startAutoPlay();
+        });
+        
+        // 초기 자동 재생 시작
+        startAutoPlay();
+    });
 }
 
 console.log('Seoul Gallery scripts loaded successfully!');

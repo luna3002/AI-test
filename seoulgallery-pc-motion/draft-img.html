@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서울갤러리</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f5f5f5;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background-color: #222;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .top-banner-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-banner-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-banner-left .seoul-logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-banner-left .seoul-logo img {
+            height: 16px;
+        }
+
+        .top-banner-notice {
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-banner-notice::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: #0066ff;
+            border-radius: 50%;
+        }
+
+        .top-banner-right {
+            display: flex;
+            gap: 20px;
+            color: #888;
+        }
+
+        .top-banner-right a:hover {
+            color: #fff;
+        }
+
+        /* Header */
+        .header {
+            background-color: #222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 48px;
+        }
+
+        .nav a {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: #0066ff;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .lang-selector {
+            color: #fff;
+            background: transparent;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-decoration-left {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 100px;
+        }
+
+        .hero-decoration-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-pagination {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .hero-pagination span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .hero-pagination span.active {
+            background: #0066ff;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Schedule Section */
+        .schedule-section {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .calendar-widget {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-title {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .calendar-link {
+            color: #666;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .calendar-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .calendar-nav button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .calendar-month {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-day-header {
+            font-size: 12px;
+            color: #999;
+            padding: 8px 0;
+        }
+
+        .calendar-day {
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .calendar-day:hover {
+            background: #f0f0f0;
+        }
+
+        .calendar-day.other-month {
+            color: #ccc;
+        }
+
+        .calendar-day.today {
+            background: #222;
+            color: #fff;
+        }
+
+        .calendar-day.has-event {
+            position: relative;
+        }
+
+        .calendar-day.has-event::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background: #0066ff;
+            border-radius: 50%;
+        }
+
+        .event-list {
+            border-top: 1px solid #eee;
+            padding-top: 16px;
+        }
+
+        .event-list-title {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .event-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .event-item:last-child {
+            border-bottom: none;
+        }
+
+        .event-date {
+            font-size: 32px;
+            font-weight: 700;
+            color: #222;
+            display: inline-block;
+            width: 50px;
+        }
+
+        .event-info {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 12px;
+        }
+
+        .event-name {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .event-period {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Right Content */
+        .right-content {
+            padding-top: 80px;
+        }
+
+        .info-cards {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .info-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-card-icon img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .info-card-content h4 {
+            font-size: 13px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .info-card-content p {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .info-card-content p span {
+            font-size: 12px;
+            color: #999;
+            font-weight: 400;
+        }
+
+        .visit-btn {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .visit-btn:hover {
+            border-color: #222;
+        }
+
+        /* Future Seoul Section */
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title-en {
+            font-size: 16px;
+            color: #999;
+            font-weight: 400;
+        }
+
+        .future-seoul-section {
+            margin-bottom: 60px;
+        }
+
+        .exhibition-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .exhibition-card {
+            position: relative;
+        }
+
+        .exhibition-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .exhibition-card-title .arrow {
+            font-size: 14px;
+        }
+
+        .exhibition-main-image {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .exhibition-main-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .exhibition-tags {
+            display: flex;
+            gap: 8px;
+        }
+
+        .exhibition-tag {
+            background: #222;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .exhibition-tag.outline {
+            background: transparent;
+            border: 1px solid #ddd;
+            color: #666;
+        }
+
+        .exhibition-thumbnail {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .exhibition-thumbnail img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .world-library-card .exhibition-main-image img {
+            height: 350px;
+        }
+
+        /* Decoration Star */
+        .decoration-star {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        /* Program Section */
+        .program-section {
+            margin-bottom: 60px;
+            padding: 40px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+        }
+
+        .program-main {
+            grid-column: 1;
+        }
+
+        .program-badge {
+            display: inline-block;
+            background: #0066ff;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .program-date {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .program-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .program-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .program-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #222;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 24px;
+            font-size: 14px;
+        }
+
+        .program-images {
+            display: flex;
+            gap: 16px;
+            grid-column: 2 / 4;
+        }
+
+        .program-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .program-slider-btn {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Venue Section */
+        .venue-section {
+            margin-bottom: 60px;
+            padding: 40px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .venue-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .venue-link {
+            color: #666;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .venue-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .venue-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .venue-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: #fff;
+        }
+
+        .venue-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .venue-desc {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .venue-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 24px;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+        }
+
+        .venue-tags {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .venue-tag {
+            background: #0066ff;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .venue-tag.outline {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        /* Notice Section */
+        .notice-section {
+            margin-bottom: 60px;
+            padding: 40px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .notice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .notice-list {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .notice-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+
+        .notice-item:hover {
+            background: #f9f9f9;
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-category {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .notice-category.blue {
+            background: #e6f0ff;
+            color: #0066ff;
+        }
+
+        .notice-title {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .notice-date {
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* Footer */
+        .footer {
+            background: #222;
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-logo img {
+            height: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            background: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .footer-address {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.8;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .newsletter-title {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            background: #333;
+            border: none;
+            padding: 16px 20px;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .newsletter-input::placeholder {
+            color: #666;
+        }
+
+        .newsletter-btn {
+            width: 48px;
+            height: 48px;
+            background: #0066ff;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .newsletter-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="top-banner-inner">
+            <div class="top-banner-left">
+                <div class="seoul-logo">
+                    <span>🏛️ 서울특별시</span>
+                </div>
+                <span class="top-banner-notice">2025년 서울시 신진작가발굴전시회 작품 공모전</span>
+            </div>
+            <div class="top-banner-right">
+                <a href="#">서울소식</a>
+                <a href="#">통합검색</a>
+                <a href="#">접근성정보</a>
+                <a href="#">관계법령비리</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <img src="assets/logo-seoul-gallery.svg" alt="Seoul Gallery">
+            </a>
+            <nav class="nav">
+                <a href="#">서울갤러리</a>
+                <a href="#">미래서울도시관</a>
+                <a href="#">공간 대관</a>
+                <a href="#">프로그램</a>
+                <a href="#">알림마당</a>
+            </nav>
+            <div class="header-right">
+                <button class="lang-selector">
+                    한국어 <span>▼</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="assets/hero-main-background.png" alt="Hero" class="hero-bg">
+        <img src="assets/hero-decoration-left.svg" alt="" class="hero-decoration-left">
+        <div class="hero-pagination">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="schedule-section">
+            <!-- Calendar Widget -->
+            <div class="calendar-widget">
+                <div class="calendar-header">
+                    <h2 class="calendar-title">서울 갤러리 일정</h2>
+                    <a href="#" class="calendar-link">
+                        <img src="assets/icon-calendar.svg" alt="" style="width: 16px; height: 16px;">
+                        달력보기
+                    </a>
+                </div>
+                <div class="calendar-nav">
+                    <button>&lt;</button>
+                    <span class="calendar-month">2025년 12월</span>
+                    <button>&gt;</button>
+                </div>
+                <div class="calendar-grid">
+                    <span class="calendar-day-header">월</span>
+                    <span class="calendar-day-header">화</span>
+                    <span class="calendar-day-header">수</span>
+                    <span class="calendar-day-header">목</span>
+                    <span class="calendar-day-header">금</span>
+                    <span class="calendar-day-header">토</span>
+                    <span class="calendar-day-header">일</span>
+                    
+                    <span class="calendar-day other-month">26</span>
+                    <span class="calendar-day other-month">27</span>
+                    <span class="calendar-day other-month">28</span>
+                    <span class="calendar-day other-month">29</span>
+                    <span class="calendar-day other-month">30</span>
+                    <span class="calendar-day">1</span>
+                    <span class="calendar-day">28</span>
+                    
+                    <span class="calendar-day">3</span>
+                    <span class="calendar-day">4</span>
+                    <span class="calendar-day">5</span>
+                    <span class="calendar-day">6</span>
+                    <span class="calendar-day">7</span>
+                    <span class="calendar-day">8</span>
+                    <span class="calendar-day">9</span>
+                    
+                    <span class="calendar-day has-event">10</span>
+                    <span class="calendar-day has-event">11</span>
+                    <span class="calendar-day">12</span>
+                    <span class="calendar-day">13</span>
+                    <span class="calendar-day">14</span>
+                    <span class="calendar-day has-event">15</span>
+                    <span class="calendar-day">16</span>
+                    
+                    <span class="calendar-day">17</span>
+                    <span class="calendar-day">18</span>
+                    <span class="calendar-day">19</span>
+                    <span class="calendar-day">20</span>
+                    <span class="calendar-day">21</span>
+                    <span class="calendar-day">22</span>
+                    <span class="calendar-day">23</span>
+                    
+                    <span class="calendar-day has-event">24</span>
+                    <span class="calendar-day">25</span>
+                    <span class="calendar-day">26</span>
+                    <span class="calendar-day">27</span>
+                    <span class="calendar-day">28</span>
+                    <span class="calendar-day today">29</span>
+                    <span class="calendar-day">30</span>
+                    
+                    <span class="calendar-day has-event">31</span>
+                    <span class="calendar-day other-month">1</span>
+                    <span class="calendar-day other-month">2</span>
+                    <span class="calendar-day other-month">3</span>
+                    <span class="calendar-day other-month">4</span>
+                    <span class="calendar-day other-month">5</span>
+                    <span class="calendar-day other-month">6</span>
+                </div>
+                
+                <div class="event-list">
+                    <p class="event-list-title">현재 진행중인 일정 5</p>
+                    
+                    <div class="event-item">
+                        <span class="event-date">10</span>
+                        <div class="event-info">
+                            <p class="event-name">서울갤러리 개관 기념 전시회</p>
+                            <p class="event-period">© 2025.12.10 - 2025.12.31</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <span class="event-date">11</span>
+                        <div class="event-info">
+                            <p class="event-name">현대 미술의 새로운 경계</p>
+                            <p class="event-period">© 2025.12.11 - 2025.12.21</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <span class="event-date">15</span>
+                        <div class="event-info">
+                            <p class="event-name">예술과 기술의 융합</p>
+                            <p class="event-period">© 2025.12.10 - 2025.12.31</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <span class="event-date">24</span>
+                        <div class="event-info">
+                            <p class="event-name">어린이 미술 체험</p>
+                            <p class="event-period">© 2025.12.24</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <span class="event-date">31</span>
+                        <div class="event-info">
+                            <p class="event-name">연말 전시회</p>
+                            <p class="event-period">© 2025.12.31</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="right-content">
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <img src="assets/icon-clock.svg" alt="">
+                        </div>
+                        <div class="info-card-content">
+                            <h4>관람시간</h4>
+                            <p>평일 10:00 - 18:00<br><span>* 주말 및 공휴일 휴관</span></p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <img src="assets/icon-money-free.svg" alt="">
+                        </div>
+                        <div class="info-card-content">
+                            <h4>관람료</h4>
+                            <p>무료</p>
+                        </div>
+                    </div>
+                    <button class="visit-btn">
+                        <span>오시는 길</span>
+                        <span>→</span>
+                    </button>
+                </div>
+
+                <!-- Future Seoul Section -->
+                <section class="future-seoul-section" style="position: relative;">
+                    <h2 class="section-title">미래서울도시관 <span class="section-title-en">Future Seoul Urban Hall</span></h2>
+                    <img src="assets/decoration-corner.svg" alt="" class="decoration-star" style="width: 80px; height: 80px;">
+                    
+                    <div class="exhibition-grid">
+                        <div class="exhibition-card">
+                            <h3 class="exhibition-card-title">미래서울관 <span class="arrow">↗</span></h3>
+                            <div class="exhibition-main-image">
+                                <img src="assets/exhibition-future-seoul.png" alt="미래서울관">
+                            </div>
+                            <div class="exhibition-tags">
+                                <span class="exhibition-tag">미래관</span>
+                                <span class="exhibition-tag outline">서울관</span>
+                                <span class="exhibition-tag outline">미래서울도관</span>
+                            </div>
+                            <div class="exhibition-thumbnail" style="margin-top: 16px;">
+                                <img src="assets/exhibition-future-thumbnail.png" alt="">
+                            </div>
+                        </div>
+                        
+                        <div class="exhibition-card world-library-card">
+                            <h3 class="exhibition-card-title">세계도시관 <span class="arrow">↗</span></h3>
+                            <div class="exhibition-main-image">
+                                <img src="assets/exhibition-world-main.png" alt="세계도시관">
+                            </div>
+                            <div class="exhibition-tags">
+                                <span class="exhibition-tag">도시관</span>
+                                <span class="exhibition-tag outline">세계관</span>
+                                <span class="exhibition-tag outline">세계도시관</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Program Section -->
+        <section class="program-section">
+            <h2 class="section-title">프로그램 <span class="section-title-en">Program</span></h2>
+            <div class="program-grid" style="position: relative;">
+                <div class="program-main">
+                    <span class="program-badge">수강료</span>
+                    <p class="program-date">2025.12.13 - 2025.12.31</p>
+                    <h3 class="program-title">미래서울도시전</h3>
+                    <p class="program-desc">
+                        미래서울도시전은 혁신적인 도시디자인을 탐구하는 전시회입니다.
+                        다양한 프로그램과 워크숍이 준비되어 있으니, 놓치지 마세요!
+                        더 많은 정보를 사이트에서 확인하세요. 특별체험 예약도 수 있습니다.
+                        자세한 일정은은 공식 웹사이트에서 확인하세요!
+                    </p>
+                    <a href="#" class="program-link">자세히보기 →</a>
+                </div>
+                <div class="program-images">
+                    <div class="program-image">
+                        <img src="assets/featured-future-seoul-expo-poster.png" alt="프로그램 이미지">
+                    </div>
+                    <div class="program-image">
+                        <img src="assets/poster-gallery-item.png" alt="프로그램 이미지">
+                    </div>
+                </div>
+                <button class="program-slider-btn">→</button>
+            </div>
+        </section>
+
+        <!-- Venue Section -->
+        <section class="venue-section">
+            <div class="venue-header">
+                <h2 class="section-title">대관안내 <span class="section-title-en">Venue Rental Information</span></h2>
+                <a href="#" class="venue-link">자세히보기 →</a>
+            </div>
+            <div class="venue-card">
+                <img src="assets/workshoproom.png" alt="워크숍룸">
+                <div class="venue-overlay">
+                    <h3 class="venue-name">워크숍룸</h3>
+                    <p class="venue-desc">서울 중구청사 1층 회의장 및 회의실을 대관하여 다양한 용도로 이용하실 수 있습니다.<br>원하시는 날짜와 인원에 맞는 공간을 선택하여 가이드라인에 따라 이용 가능합니다.</p>
+                    <a href="#" class="venue-cta">
+                        <img src="assets/icon-location.svg" alt="" style="width: 16px; height: 16px; filter: brightness(0) invert(1);">
+                        워크숍룸 대관하기
+                    </a>
+                </div>
+                <div class="venue-tags">
+                    <span class="venue-tag">워크숍룸</span>
+                    <span class="venue-tag outline">목그라미방</span>
+                    <span class="venue-tag outline">휴의실1</span>
+                    <span class="venue-tag outline">휴의실2</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notice Section -->
+        <section class="notice-section">
+            <div class="notice-header">
+                <h2 class="section-title">공지사항 <span class="section-title-en">Notice</span></h2>
+                <a href="#" class="venue-link">자세히보기 →</a>
+            </div>
+            <div class="notice-list">
+                <a href="#" class="notice-item">
+                    <div>
+                        <span class="notice-category blue">공지사항</span>
+                        <h4 class="notice-title">2025년 12월 서울갤러리 전시일정안내</h4>
+                    </div>
+                    <span class="notice-date">2025.12.12</span>
+                </a>
+                <a href="#" class="notice-item">
+                    <div>
+                        <span class="notice-category blue">공지사항</span>
+                        <h4 class="notice-title">서울갤러리 대관 및 휴관 안내</h4>
+                    </div>
+                    <span class="notice-date">2025.12.12</span>
+                </a>
+                <a href="#" class="notice-item">
+                    <div>
+                        <span class="notice-category">새소식</span>
+                        <h4 class="notice-title">홈페이지 오픈 이벤트 안내</h4>
+                    </div>
+                    <span class="notice-date">2025.12.12</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <a href="#" class="footer-logo">
+                    <img src="assets/footer-logo.svg" alt="Seoul Gallery">
+                </a>
+                <div class="footer-links">
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">이메일무단</a>
+                </div>
+                <p class="footer-address">
+                    서울특별시 중구 세종대로 110 서울특별시청 1, 2, 4층<br>
+                    <a href="#" style="color: #0066ff;">서울갤러리 찾아오기 ↗</a>
+                </p>
+                <p class="footer-copyright">© 2025 SEOUL GALLERY. All Rights Reserved</p>
+            </div>
+            <div class="footer-right">
+                <p class="newsletter-title">NEWSLETTER</p>
+                <p style="font-size: 14px; color: #888; margin-bottom: 12px;">서울갤러리의 소식과 이야기를 뉴스레터로 받아보세요</p>
+                <div class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="E-MAIL">
+                    <button class="newsletter-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

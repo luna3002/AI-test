@@ -882,10 +882,19 @@ ul, ol {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--transition-slow);
+    transition: transform var(--transition-slow), opacity var(--transition-base);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
 }
 
-.exhibition-card:hover .exhibition-image {
+.exhibition-image.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.exhibition-card:hover .exhibition-image.active {
     transform: scale(1.05);
 }
 
@@ -951,6 +960,7 @@ ul, ol {
     bottom: 17px;
     display: flex;
     gap: var(--spacing-sm);
+    z-index: 10;
 }
 
 .tag {
@@ -963,6 +973,7 @@ ul, ol {
     background-color: var(--color-white);
     transition: all var(--transition-fast);
     cursor: pointer;
+    user-select: none;
 }
 
 .tag.active {
@@ -970,16 +981,12 @@ ul, ol {
 }
 
 .tag.green.active {
-    background-color: var(--color-primary);
+    background-color: var(--color-accent);
     color: var(--color-white);
 }
 
-.tag.outline {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-black);
-}
-
-.tag:hover {
+.tag:not(.active):hover {
+    background-color: var(--color-light-background);
     transform: translateY(-2px);
 }
 

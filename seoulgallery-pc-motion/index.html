@@ -286,14 +286,18 @@
 
                 <div class="exhibition-grid">
                     <!-- Exhibition Card 1 -->
-                    <div class="exhibition-card fade-in-up">
+                    <div class="exhibition-card fade-in-up" data-exhibition="future-seoul">
                         <div class="exhibition-image-wrapper">
                             <div class="exhibition-image-container">
-                                <img src="assets/exhibition-future-seoul.png" alt="미래서울관 전시" class="exhibition-image">
+                                <img src="assets/exhibition-future-seoul.png" alt="미래관 전시" class="exhibition-image active" data-tab="future">
+                                <img src="assets/exhibition-world-main.png" alt="서울관 전시" class="exhibition-image" data-tab="seoul">
+                                <img src="assets/exhibition-future-thumbnail.png" alt="미래서울관 전시" class="exhibition-image" data-tab="future-seoul">
                             </div>
                             <div class="exhibition-header">
                                 <div class="exhibition-header-content">
-                                    <h3 class="exhibition-name">미래서울관</h3>
+                                    <h3 class="exhibition-name" data-tab="future">미래관</h3>
+                                    <h3 class="exhibition-name" data-tab="seoul" style="display: none;">서울관</h3>
+                                    <h3 class="exhibition-name" data-tab="future-seoul" style="display: none;">미래서울관</h3>
                                     <button class="exhibition-expand-btn">
                                         <img src="assets/icon-expand.svg" alt="확대" width="20" height="20">
                                     </button>
@@ -302,9 +306,9 @@
                                 <img src="assets/imground-left.svg" alt="" class="header-bg-left-bottom">
                             </div>
                             <div class="exhibition-tags">
-                                <span class="tag active">미래관</span>
-                                <span class="tag">서울관</span>
-                                <span class="tag">미래서울관</span>
+                                <span class="tag active" data-tab="future">미래관</span>
+                                <span class="tag" data-tab="seoul">서울관</span>
+                                <span class="tag" data-tab="future-seoul">미래서울관</span>
                             </div>
                         </div>
                         <div class="exhibition-thumbnail">
@@ -313,19 +317,27 @@
                     </div>
 
                     <!-- Exhibition Card 2 -->
-                    <div class="exhibition-card fade-in-up">
+                    <div class="exhibition-card fade-in-up" data-exhibition="future-seoul">
                         <div class="exhibition-thumbnail-top">
                             <img src="assets/exhibition-world-thumbnail.png" alt="세계도시관 썸네일">
                         </div>
                         <div class="exhibition-image-wrapper">
                             <div class="exhibition-image-container">
                                 <img src="assets/exhibition-world-main.png" 
+                                     alt="도시관 전시" 
+                                     class="exhibition-image active" data-tab="city">
+                                <img src="assets/exhibition-future-thumbnail.png" 
+                                     alt="세계관 전시" 
+                                     class="exhibition-image" data-tab="world">
+                                <img src="assets/exhibition-future-seoul.png" 
                                      alt="세계도시관 전시" 
-                                     class="exhibition-image">
+                                     class="exhibition-image" data-tab="world-city">
                             </div>
                             <div class="exhibition-header">
                                 <div class="exhibition-header-content">
-                                    <h3 class="exhibition-name">세계도시관</h3>
+                                    <h3 class="exhibition-name" data-tab="city">도시관</h3>
+                                    <h3 class="exhibition-name" data-tab="world" style="display: none;">세계관</h3>
+                                    <h3 class="exhibition-name" data-tab="world-city" style="display: none;">세계도시관</h3>
                                     <button class="exhibition-expand-btn">
                                         <img src="assets/icon-expand.svg" alt="확대" width="20" height="20">
                                     </button>
@@ -334,9 +346,9 @@
                                 <img src="assets/imground-left.svg" alt="" class="header-bg-left-bottom">
                             </div>
                             <div class="exhibition-tags">
-                                <span class="tag green active">도시관</span>
-                                <span class="tag">세계관</span>
-                                <span class="tag">세계도시관</span>
+                                <span class="tag green active" data-tab="city">도시관</span>
+                                <span class="tag green" data-tab="world">세계관</span>
+                                <span class="tag green" data-tab="world-city">세계도시관</span>
                             </div>
                         </div>
                     </div>
