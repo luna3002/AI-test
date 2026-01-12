@@ -243,8 +243,8 @@ ul, ol {
     height: 100%;
     padding: 0 60px;
     background-color: rgba(29, 41, 57, 0.6);
-    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     border-radius: var(--radius-md);
 }
 
@@ -941,6 +941,7 @@ ul, ol {
     transform: translateY(-7px);
 }
 
+
 .exhibition-expand-btn {
     width: 40px;
     height: 40px;
@@ -973,6 +974,7 @@ ul, ol {
     background-color: var(--color-white);
     transition: all var(--transition-fast);
     cursor: pointer;
+    -webkit-user-select: none;
     user-select: none;
 }
 
