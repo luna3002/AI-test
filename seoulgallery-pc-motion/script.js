@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTabInteractions();
     initSmoothScroll();
     initExhibitionTabs();
+    initPosterSlider();
 });
 
 // ======================= //
@@ -594,6 +595,151 @@ function initExhibitionTabs() {
         // 초기 자동 재생 시작
         startAutoPlay();
     });
+}
+
+// ======================= //
+// POSTER SLIDER (PROGRAM SECTION) - 무한 루프
+// ======================= //
+function initPosterSlider() {
+    const posterScroll = document.querySelector('.program-section .poster-scroll');
+    const posterWrappers = Array.from(document.querySelectorAll('.program-section .poster-item-wrapper'));
+    const prevBtn = document.querySelector('.poster-prev-btn');
+    const nextBtn = document.querySelector('.poster-next-btn');
+    
+    // 텍스트 영역 요소들
+    const featuredTitle = document.getElementById('featured-title');
+    const featuredDate = document.getElementById('featured-date');
+    const featuredDescription = document.getElementById('featured-description');
+    
+    if (!posterScroll || posterWrappers.length === 0 || !prevBtn || !nextBtn) {
+        console.log('Poster slider elements not found');
+        return;
+    }
+    
+    const totalPosters = posterWrappers.length;
+    const posterWidth = 367;
+    const posterGap = 38;
+    const slideDistance = posterWidth + posterGap;
+    
+    // 원본 포스터 데이터 저장 (복제 전)
+    const posterData = posterWrappers.map(wrapper => ({
+        title: wrapper.dataset.title || '',
+        date: wrapper.dataset.date || '',
+        description: wrapper.dataset.description || ''
+    }));
+    
+    // 무한 루프를 위해 포스터 복제 (앞뒤로 추가)
+    const firstClone = posterWrappers[0].cloneNode(true);
+    const lastClone = posterWrappers[totalPosters - 1].cloneNode(true);
+    firstClone.classList.add('clone');
+    lastClone.classList.add('clone');
+    
+    posterScroll.appendChild(firstClone);
+    posterScroll.insertBefore(lastClone, posterWrappers[0]);
+    
+    // 복제 후 새로운 래퍼 목록
+    const allWrappers = Array.from(document.querySelectorAll('.program-section .poster-item-wrapper'));
+    
+    let currentIndex = 1; // 복제된 마지막 포스터가 앞에 있으므로 1부터 시작
+    let isTransitioning = false;
+    
+    // 초기 위치 설정
+    posterScroll.style.transform = `translateX(${-currentIndex * slideDistance}px)`;
+    
+    // 텍스트 업데이트 함수
+    function updateTextContent(dataIndex) {
+        if (!featuredTitle || !featuredDate || !featuredDescription) return;
+        
+        const data = posterData[dataIndex];
+        if (data) {
+            // 페이드 효과
+            featuredTitle.style.opacity = '0';
+            featuredDate.style.opacity = '0';
+            featuredDescription.style.opacity = '0';
+            
+            setTimeout(() => {
+                featuredTitle.textContent = data.title;
+                featuredDate.textContent = data.date;
+                featuredDescription.innerHTML = data.description;
+                
+                featuredTitle.style.opacity = '1';
+                featuredDate.style.opacity = '1';
+                featuredDescription.style.opacity = '1';
+            }, 200);
+        }
+    }
+    
+    // 실제 데이터 인덱스 계산 (복제본 고려)
+    function getRealIndex(index) {
+        if (index <= 0) return totalPosters - 1;
+        if (index > totalPosters) return 0;
+        return index - 1;
+    }
+    
+    // 활성화 상태 업데이트
+    function updateActiveState() {
+        allWrappers.forEach((wrapper) => {
+            wrapper.classList.remove('active');
+        });
+        allWrappers[currentIndex].classList.add('active');
+        
+        // 텍스트 업데이트
+        const realIndex = getRealIndex(currentIndex);
+        updateTextContent(realIndex);
+    }
+    
+    // 슬라이드 이동
+    function slideTo(index, animate = true) {
+        if (isTransitioning) return;
+        
+        currentIndex = index;
+        
+        if (animate) {
+            isTransitioning = true;
+            posterScroll.style.transition = 'transform 0.5s ease';
+        } else {
+            posterScroll.style.transition = 'none';
+        }
+        
+        posterScroll.style.transform = `translateX(${-currentIndex * slideDistance}px)`;
+        updateActiveState();
+    }
+    
+    // 트랜지션 종료 시 무한 루프 처리
+    posterScroll.addEventListener('transitionend', function() {
+        isTransitioning = false;
+        
+        // 첫 번째 복제본에 도달 (마지막 → 처음으로 이동 시)
+        if (currentIndex >= totalPosters + 1) {
+            slideTo(1, false);
+        }
+        // 마지막 복제본에 도달 (처음 → 마지막으로 이동 시)
+        else if (currentIndex <= 0) {
+            slideTo(totalPosters, false);
+        }
+    });
+    
+    // 이전 버튼 (오른쪽 썸네일이 왼쪽으로 넘어옴)
+    prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        slideTo(currentIndex + 1);
+    });
+    
+    // 다음 버튼 (왼쪽 썸네일이 오른쪽으로 넘어감)
+    nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        slideTo(currentIndex - 1);
+    });
+    
+    // 초기 상태 설정
+    updateActiveState();
+    
+    // 텍스트 전환 효과를 위한 스타일 추가
+    if (featuredTitle) featuredTitle.style.transition = 'opacity 0.2s ease';
+    if (featuredDate) featuredDate.style.transition = 'opacity 0.2s ease';
+    if (featuredDescription) featuredDescription.style.transition = 'opacity 0.2s ease';
+    
+    console.log('Infinite poster slider initialized with', totalPosters, 'posters');
 }
 
 console.log('Seoul Gallery scripts loaded successfully!');

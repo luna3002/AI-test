@@ -3,7 +3,7 @@
 /* ======================= */
 :root {
     /* Responsive Icon Size */
-    ---24-to-18: 24px; /* PC 기본값 */
+    ---24-to-18: 24px; /* PC ê¸°ë³¸ê°’ */
     
     /* Typography */
     --font-family-primary: 'Paperlogy', 'SeoulNotice', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -97,10 +97,10 @@
     --container-max-width: 1920px;
 }
 
-/* 모바일 및 태블릿 (768px 이하) */
+/* ëª¨ë°”ì¼ ë° íƒœë¸”ë¦¿ (768px ì´í•˜) */
 @media (max-width: 768px) {
     :root {
-        ---24-to-18: 18px; /* 모바일 값 */
+        ---24-to-18: 18px; /* ëª¨ë°”ì¼ ê°’ */
     }
 }
 
@@ -796,7 +796,6 @@ ul, ol {
     align-items: center;
     gap: var(--spacing-2xl);
     padding: var(--spacing-custom) var(--spacing-7xl);
-    background-color: #fafafa;
 }
 
 .section-header > div:first-child {
@@ -908,7 +907,7 @@ ul, ol {
     z-index: 1;
 }
 
-/* 콘텐츠 레이어 (흰색 배경 박스) */
+/* ì½˜í…ì¸  ë ˆì´ì–´ (í°ìƒ‰ ë°°ê²½ ë°•ìŠ¤) */
 .exhibition-header-content {
     display: flex;
     align-items: flex-start;
@@ -1233,50 +1232,98 @@ ul, ol {
 /* POSTER GALLERY (INSIDE PROGRAM) */
 /* ======================= */
 .program-section .poster-gallery {
-    position: relative;
-    flex: 1;
+    position: absolute;
+    left: calc(432px + 80px + 10px); /* featured-content 너비 + 좌측 패딩 + 쉐도우 여유 */
+    right: -100px; /* 오른쪽 화면 밖으로 확장 */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    overflow: visible; /* clip-path가 클리핑 담당 */
     padding: 0;
-    overflow: visible;
+    margin-top: -60px; /* 상단으로 올려서 회색 영역 밖으로 */
+    clip-path: inset(-30px -100px -30px -10px); /* 상 우 하 좌: 왼쪽 쉐도우도 살짝 보이도록 */
 }
 
 .program-section .poster-scroll {
     display: flex;
     gap: 38px;
-    overflow-x: auto;
-    padding-bottom: var(--spacing-xl);
+    transition: transform 0.5s ease;
 }
 
 .program-section .poster-scroll::-webkit-scrollbar {
     display: none;
 }
 
-.program-section .poster-item {
+/* 포스터 아이템 래퍼 */
+.program-section .poster-item-wrapper {
+    position: relative;
     width: 367px;
     height: 509px;
-    border-radius: var(--radius-sm);
     flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    transition: box-shadow 0.5s ease;
+    box-shadow: none; /* 기본: 그림자 없음 */
+}
+
+/* 활성화된 포스터 - 그림자 있음 */
+.program-section .poster-item-wrapper.active {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.program-section .poster-item {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transition: transform var(--transition-fast);
 }
 
-.program-section .poster-item:hover {
-    transform: scale(1.02);
+/* 흰색 오버레이 (비활성화 상태) - 기본으로 보임 */
+.program-section .poster-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    opacity: 1; /* 기본: 오버레이 보임 */
+    z-index: 1;
 }
 
+/* 활성화된 포스터는 오버레이 완전히 숨김 */
+.program-section .poster-item-wrapper.active .poster-overlay {
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
+/* 네비게이션 버튼 공통 스타일 - featured-exhibition 기준 배치 */
 .poster-nav-btn {
     position: absolute;
-    right: 0;
     top: 50%;
     transform: translateY(-50%);
     background: transparent;
     border: none;
     cursor: pointer;
     transition: all var(--transition-fast);
-    z-index: 10;
+    z-index: 30;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
+    margin-top: -60px; /* poster-gallery와 동일한 오프셋 */
 }
 
 .poster-nav-btn:hover {
     transform: translateY(-50%) scale(1.05);
+}
+
+/* 이전 버튼 - featured-exhibition 기준 */
+.poster-prev-btn {
+    left: calc(432px + 80px - 32px); /* 첫 번째 포스터 왼쪽 가장자리 - 버튼 절반 */
+}
+
+/* 다음 버튼 - featured-exhibition 기준 */
+.poster-next-btn {
+    left: calc(432px + 80px + 367px + 38px + 367px / 2 - 32px); /* 첫 포스터 + gap + 두번째포스터 중앙 - 버튼 절반 */
 }
 
 /* ======================= */
@@ -1284,16 +1331,23 @@ ul, ol {
 /* ======================= */
 .program-section {
     padding: var(--spacing-7xl) 0;
+    overflow: visible;
 }
 
 .program-section .section-header {
     padding: 0 var(--spacing-7xl);
-    margin-bottom: var(--spacing-5xl);
+    margin-bottom: 32px; /* 프로그램 타이틀과 회색 박스 사이 32px */
 }
 
 .program-content {
     background-color: #fafafa;
-    padding: var(--spacing-6xl) var(--spacing-7xl);
+    padding: 60px var(--spacing-7xl);
+    padding-top: 60px; /* 진행중 뱃지 위 60px */
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    overflow: visible;
+    min-height: 460px;
 }
 
 /* ======================= */
@@ -1301,17 +1355,34 @@ ul, ol {
 /* ======================= */
 .program-section .featured-exhibition {
     display: flex;
-    gap: var(--spacing-7xl);
+    gap: 80px;
     background-color: transparent;
     padding: 0;
+    width: 100%;
+    align-items: flex-start;
+    position: relative;
 }
 
 .featured-content {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    width: 432px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 5; /* 썸네일보다 위에 */
+}
+
+.featured-content .featured-info {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-5xl);
-    max-width: 432px;
+}
+
+.featured-content .featured-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
 }
 
 .featured-badges {
@@ -1348,7 +1419,7 @@ ul, ol {
 }
 
 .featured-description {
-    font-family: 'SeoulNotice', var(--font-family-primary);
+    font-family: var(--font-family-primary);
     font-size: var(--font-size-base);
     font-weight: 500;
     color: var(--color-gray-700);
@@ -1356,12 +1427,12 @@ ul, ol {
     line-height: 1.6;
 }
 
-.featured-link {
+.featured-link { 
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-base);
+    padding: 4px 20px; /* 상하 4px, 좌우 20px */
     background-color: var(--color-primary);
     color: var(--color-white);
     border-radius: 999px;

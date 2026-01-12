@@ -376,17 +376,21 @@
                 <div class="program-content">
                     <div class="featured-exhibition">
                         <div class="featured-content">
-                            <div class="featured-badges">
-                                <span class="badge yellow">진행중</span>
-                                <span class="badge outline">2025.12.12 - 2025.12.31</span>
+                            <div class="featured-info">
+                                <div class="featured-badges">
+                                    <span class="badge yellow">진행중</span>
+                                    <span class="badge outline" id="featured-date">2025.12.12 - 2025.12.31</span>
+                                </div>
+                                <div class="featured-text">
+                                    <h2 class="featured-title" id="featured-title">미래서울도시전</h2>
+                                    <p class="featured-description" id="featured-description">
+                                        미래서울도시전은 혁신적인 도시 디자인을 탐구하는 전시입니다.<br>
+                                        다양한 프로그램과 워크숍이 준비되어 있으니 놓치지 마세요!<br>
+                                        전시 관람은 사전 예약제로 운영되며, 주말에는 혼잡할 수 있습니다.<br>
+                                        자세한 일정은 공식 웹사이트에서 확인하세요!
+                                    </p>
+                                </div>
                             </div>
-                            <h2 class="featured-title">미래서울도시전</h2>
-                            <p class="featured-description">
-                                미래서울도시전은 혁신적인 도시 디자인을 탐구하는 전시입니다.<br>
-                                다양한 프로그램과 워크숍이 준비되어 있으니 놓치지 마세요!<br>
-                                전시 관람은 사전 예약제로 운영되며, 주말에는 혼잡할 수 있습니다.<br>
-                                자세한 일정은 공식 웹사이트에서 확인하세요!
-                            </p>
                             <a href="#" class="featured-link">
                                 <span>자세히보기</span>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -396,18 +400,49 @@
                         </div>
                         <div class="poster-gallery">
                             <div class="poster-scroll">
-                                <img src="assets/poster-gallery-item.png" alt="전시 포스터 1" class="poster-item">
-                                <img src="assets/poster-gallery-item.png" alt="전시 포스터 2" class="poster-item">
-                                <img src="assets/poster-gallery-item.png" alt="전시 포스터 3" class="poster-item">
-                                <img src="assets/poster-gallery-item.png" alt="전시 포스터 4" class="poster-item">
+                                <div class="poster-item-wrapper active" 
+                                     data-title="미래서울도시전" 
+                                     data-date="2025.12.12 - 2025.12.31"
+                                     data-description="미래서울도시전은 혁신적인 도시 디자인을 탐구하는 전시입니다.<br>다양한 프로그램과 워크숍이 준비되어 있으니 놓치지 마세요!<br>전시 관람은 사전 예약제로 운영되며, 주말에는 혼잡할 수 있습니다.<br>자세한 일정은 공식 웹사이트에서 확인하세요!">
+                                    <img src="assets/poster-gallery-item.png" alt="전시 포스터 1" class="poster-item">
+                                    <div class="poster-overlay"></div>
+                                </div>
+                                <div class="poster-item-wrapper"
+                                     data-title="현대미술의 경계"
+                                     data-date="2025.12.15 - 2026.01.15"
+                                     data-description="현대미술의 경계를 넘나드는 작품들을 만나보세요.<br>국내외 유명 작가들의 작품이 전시됩니다.<br>매주 토요일 아티스트 토크가 진행됩니다.<br>전시 기간 중 다양한 이벤트가 준비되어 있습니다.">
+                                    <img src="assets/poster-gallery-item.png" alt="전시 포스터 2" class="poster-item">
+                                    <div class="poster-overlay"></div>
+                                </div>
+                                <div class="poster-item-wrapper"
+                                     data-title="서울의 빛과 그림자"
+                                     data-date="2025.12.20 - 2026.01.20"
+                                     data-description="서울의 다양한 모습을 담은 사진전입니다.<br>도시의 낮과 밤, 빛과 그림자를 탐구합니다.<br>참여 작가 20인의 작품이 전시됩니다.<br>사진 촬영 워크숍도 함께 진행됩니다.">
+                                    <img src="assets/poster-gallery-item.png" alt="전시 포스터 3" class="poster-item">
+                                    <div class="poster-overlay"></div>
+                                </div>
+                                <div class="poster-item-wrapper"
+                                     data-title="어린이 미술 체험"
+                                     data-date="2025.12.24 - 2025.12.31"
+                                     data-description="어린이를 위한 특별한 미술 체험 프로그램입니다.<br>다양한 재료로 나만의 작품을 만들어보세요.<br>전문 강사와 함께하는 체험 수업이 진행됩니다.<br>가족과 함께 즐거운 시간을 보내세요!">
+                                    <img src="assets/poster-gallery-item.png" alt="전시 포스터 4" class="poster-item">
+                                    <div class="poster-overlay"></div>
+                                </div>
                             </div>
-                            <button class="poster-nav-btn" aria-label="다음 포스터">
-                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                                    <circle cx="32" cy="32" r="32" fill="white"/>
-                                    <path d="M26 22L36 32L26 42" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </button>
                         </div>
+                        <!-- 버튼을 poster-gallery 밖으로 이동 -->
+                        <button class="poster-nav-btn poster-prev-btn" aria-label="이전 포스터">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="32" fill="white"/>
+                                <path d="M38 42L28 32L38 22" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="poster-nav-btn poster-next-btn" aria-label="다음 포스터">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="32" fill="white"/>
+                                <path d="M26 22L36 32L26 42" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </section>
