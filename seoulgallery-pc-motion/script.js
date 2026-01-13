@@ -278,21 +278,45 @@ function initTabInteractions() {
     });
     
     // Venue tags
-    const venueTags = document.querySelectorAll('.venue-tags .tag');
+    const venueTags = document.querySelectorAll('.venue-tags-content .tag');
     venueTags.forEach(tag => {
         tag.addEventListener('click', function() {
-            const parent = this.closest('.venue-tags');
+            const parent = this.closest('.venue-tags-content');
             parent.querySelectorAll('.tag').forEach(t => {
-                t.classList.remove('active');
+                t.classList.remove('active', 'green');
                 t.classList.add('outline');
             });
-            this.classList.add('active');
+            this.classList.add('active', 'green');
             this.classList.remove('outline');
+            
+            // Get data attributes
+            const image = this.dataset.image;
+            const title = this.dataset.title;
+            const desc = this.dataset.desc;
+            
+            // Update venue image
+            const venueImage = document.querySelector('.venue-image');
+            if (venueImage && image) {
+                venueImage.src = image;
+                venueImage.alt = title;
+            }
             
             // Update venue title
             const venueTitle = document.querySelector('.venue-title');
-            if (venueTitle) {
-                venueTitle.textContent = this.textContent;
+            if (venueTitle && title) {
+                venueTitle.textContent = title;
+            }
+            
+            // Update venue description
+            const venueDesc = document.querySelector('.venue-description');
+            if (venueDesc && desc) {
+                venueDesc.innerHTML = desc;
+            }
+            
+            // Update reserve button text
+            const reserveBtn = document.querySelector('.venue-reserve-btn span');
+            if (reserveBtn && title) {
+                reserveBtn.textContent = title + ' 대관예약';
             }
         });
     });
