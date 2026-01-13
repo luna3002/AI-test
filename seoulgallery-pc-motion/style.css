@@ -83,7 +83,7 @@
     
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 8px 16px 4px rgba(126, 161, 189, 0.2);
+    --shadow-md: 0 4px 8px 2px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 8px 16px 4px rgba(0, 0, 0, 0.16);
     
     /* Transitions */
@@ -421,16 +421,19 @@ ul, ol {
     width: var(--sidebar-width);
     flex-shrink: 0;
     align-self: flex-start;
+    min-height: 100vh;
 }
 
 .sidebar-inner {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-xl);
     padding: var(--spacing-6xl);
+    padding-bottom: var(--spacing-6xl);
     background-color: var(--color-primary-light);
     border-top-right-radius: var(--radius-xl);
-    overflow: hidden;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 .calendar-header {
@@ -527,6 +530,18 @@ ul, ol {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 0;
+    transition: transform var(--transition-base);
+}
+
+/* Calendar Days Wrapper - for collapse animation */
+.calendar-days-wrapper {
+    overflow: visible;
+    transition: max-height var(--transition-base);
+}
+
+.calendar-days-wrapper.collapsed {
+    max-height: 52px;
+    overflow: hidden;
 }
 
 .calendar-days .day {
@@ -562,7 +577,14 @@ ul, ol {
     color: var(--color-dark);
     font-weight: 400;
     border: 2px solid var(--color-dark);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Calendar Grid */
+.calendar-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 /* Events Section */
@@ -571,6 +593,9 @@ ul, ol {
     flex-direction: column;
     gap: var(--spacing-xl);
     width: 100%;
+    flex: 1;
+    min-height: 0;
+    margin-top: var(--spacing-xl);
 }
 
 .events-header {
@@ -578,6 +603,7 @@ ul, ol {
     align-items: center;
     gap: var(--spacing-xs);
     padding: 0 var(--spacing-md);
+    flex-shrink: 0;
 }
 
 .events-title {
@@ -598,10 +624,15 @@ ul, ol {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xl);
-    max-height: 396px;
     overflow-y: auto;
+    overflow-x: visible;
     width: 440px;
-    padding-right: var(--spacing-md);
+    padding: var(--spacing-lg);
+    padding-right: var(--spacing-2xl);
+    padding-bottom: var(--spacing-3xl);
+    margin: calc(-1 * var(--spacing-lg));
+    flex: 1;
+    min-height: 0;
 }
 
 .event-card {
@@ -612,12 +643,11 @@ ul, ol {
     background-color: var(--color-white);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    transition: transform var(--transition-fast);
 }
 
 .event-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(126, 161, 189, 0.3);
 }
 
 .event-date {

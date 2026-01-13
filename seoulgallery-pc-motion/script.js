@@ -54,6 +54,45 @@ function initScrollAnimations() {
     animatedElements.forEach(element => {
         observer.observe(element);
     });
+    
+    // Calendar collapse on scroll
+    initCalendarCollapse();
+}
+
+function initCalendarCollapse() {
+    const calendarDaysWrapper = document.querySelector('.calendar-days-wrapper');
+    const calendarDays = document.querySelector('.calendar-days');
+    const sidebar = document.querySelector('.sidebar');
+    
+    if (!calendarDaysWrapper || !calendarDays || !sidebar) return;
+    
+    // Calculate current week row number (all days including other-month)
+    const allDays = calendarDays.querySelectorAll('.day');
+    const selectedDay = calendarDays.querySelector('.day.selected');
+    let currentWeekRow = 0;
+    
+    if (selectedDay) {
+        const allDaysArray = Array.from(allDays);
+        const selectedIndex = allDaysArray.indexOf(selectedDay);
+        currentWeekRow = Math.floor(selectedIndex / 7);
+    }
+    
+    const rowHeight = 52; // Height of each day row
+    const translateY = currentWeekRow * rowHeight;
+    
+    // Scroll event to collapse/expand calendar
+    window.addEventListener('scroll', () => {
+        const sidebarRect = sidebar.getBoundingClientRect();
+        
+        // When sidebar is stuck (top: 0)
+        if (sidebarRect.top <= 0) {
+            calendarDaysWrapper.classList.add('collapsed');
+            calendarDays.style.transform = `translateY(-${translateY}px)`;
+        } else {
+            calendarDaysWrapper.classList.remove('collapsed');
+            calendarDays.style.transform = 'translateY(0)';
+        }
+    });
 }
 
 // ======================= //
@@ -369,21 +408,6 @@ function initHeroParallax() {
 
 // Initialize parallax on load
 initHeroParallax();
-
-// ======================= //
-// EVENT CARD HOVER EFFECTS
-// ======================= //
-document.querySelectorAll('.event-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-4px)';
-        this.style.boxShadow = '0 12px 24px rgba(126, 161, 189, 0.35)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = '';
-        this.style.boxShadow = '';
-    });
-});
 
 // ======================= //
 // NEWSLETTER FORM
