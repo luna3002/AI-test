@@ -515,7 +515,7 @@ skipLink.className = 'skip-link';
 skipLink.textContent = '메인 콘텐츠로 건너뛰기';
 skipLink.style.cssText = `
     position: absolute;
-    top: -40px;
+    top: -50px;
     left: 0;
     background: #111;
     color: #fff;
@@ -529,7 +529,7 @@ skipLink.addEventListener('focus', function() {
 });
 
 skipLink.addEventListener('blur', function() {
-    this.style.top = '-40px';
+    this.style.top = '-50px';
 });
 
 document.body.insertBefore(skipLink, document.body.firstChild);

@@ -601,6 +601,7 @@ ul, ol {
     max-height: 396px;
     overflow-y: auto;
     width: 440px;
+    padding-right: var(--spacing-md);
 }
 
 .event-card {
