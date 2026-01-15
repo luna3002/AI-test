@@ -2743,9 +2743,12 @@ ul, ol {
         grid-column: 2;
     }
 
-    .exhibition-grid,
-    .program-section{
+    .exhibition-grid    {
             padding: var(--spacing-5xl) 0;
+    }
+
+    .program-section{
+        padding: 0;
     }
 
     .venue-section,
@@ -2766,6 +2769,8 @@ ul, ol {
     .program-content {
         padding: 40px var(--spacing-xl) var(--spacing-5xl) var(--spacing-xl);
         min-height: auto;
+        flex-direction: column;
+        max-height: 700px;
     }
 
     .program-section .featured-exhibition {
@@ -2781,17 +2786,30 @@ ul, ol {
         position: static;
         width: 100%;
         overflow: visible;
+        margin-top: 160px;
+        clip-path: none;
     }
 
     .program-section .poster-scroll {
         gap: 20px;
-    }
         padding: 0 var(--spacing-xl);
+    }
+
+    /* 모바일에서 포스터 크기 20% 축소 */
+    .program-section .poster-item-wrapper {
+        width: 235px;
+        height: 330px;
+    }
+
+    .program-section .poster-item {
+        width: 235px;
+        height: 330px;
     }
 
     /* í”„ë¡œê·¸ëž¨ ì„¹ì…˜ ìŠ¬ë¼ì´ë“œ ë²„íŠ¼ - ëª¨ë°”ì¼ */
     .poster-nav-btn {
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        top : 500px;
     }
 
     .poster-nav-btn svg {

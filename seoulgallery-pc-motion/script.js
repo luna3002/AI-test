@@ -728,6 +728,9 @@ function initPosterSlider() {
     // 화면 크기에 따라 포스터 너비와 gap 동적 계산
     function getPosterDimensions() {
         const width = window.innerWidth;
+        if (width <= 480) {
+            return { posterWidth: 235, posterGap: 20 };
+        }
         if (width <= 1024) {
             return { posterWidth: 294, posterGap: 30 };
         }
