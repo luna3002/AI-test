@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initExhibitionTabs();
     initPosterSlider();
+    initHamburgerMenu();
 });
 
 // ======================= //
@@ -82,6 +83,13 @@ function initCalendarCollapse() {
     
     // Scroll event to collapse/expand calendar
     window.addEventListener('scroll', () => {
+        // Only apply collapse effect on screens wider than 1280px
+        if (window.innerWidth <= 1280) {
+            calendarDaysWrapper.classList.remove('collapsed');
+            calendarDays.style.transform = 'translateY(0)';
+            return;
+        }
+        
         const sidebarRect = sidebar.getBoundingClientRect();
         
         // When sidebar is stuck (top: 0)
@@ -91,6 +99,57 @@ function initCalendarCollapse() {
         } else {
             calendarDaysWrapper.classList.remove('collapsed');
             calendarDays.style.transform = 'translateY(0)';
+        }
+    });
+    
+    // Also remove collapsed state on window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 1280) {
+            calendarDaysWrapper.classList.remove('collapsed');
+            calendarDays.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+// ======================= //
+// HAMBURGER MENU
+// ======================= //
+function initHamburgerMenu() {
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    
+    if (!hamburgerBtn || !mobileMenuOverlay) return;
+    
+    // Toggle menu on hamburger button click
+    hamburgerBtn.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        this.setAttribute('aria-expanded', !isExpanded);
+        this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close menu when clicking a nav link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburgerBtn.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close menu on window resize if screen becomes larger
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 1280) {
+            hamburgerBtn.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
 }
@@ -665,9 +724,18 @@ function initPosterSlider() {
     }
     
     const totalPosters = posterWrappers.length;
-    const posterWidth = 367;
-    const posterGap = 38;
-    const slideDistance = posterWidth + posterGap;
+    
+    // 화면 크기에 따라 포스터 너비와 gap 동적 계산
+    function getPosterDimensions() {
+        const width = window.innerWidth;
+        if (width <= 1024) {
+            return { posterWidth: 294, posterGap: 30 };
+        }
+        return { posterWidth: 367, posterGap: 38 };
+    }
+    
+    let { posterWidth, posterGap } = getPosterDimensions();
+    let slideDistance = posterWidth + posterGap;
     
     // 원본 포스터 데이터 저장 (복제 전)
     const posterData = posterWrappers.map(wrapper => ({
@@ -781,6 +849,21 @@ function initPosterSlider() {
     
     // 초기 상태 설정
     updateActiveState();
+    
+    // 화면 크기 변경 시 슬라이드 거리 재계산
+    window.addEventListener('resize', function() {
+        const dimensions = getPosterDimensions();
+        posterWidth = dimensions.posterWidth;
+        posterGap = dimensions.posterGap;
+        slideDistance = posterWidth + posterGap;
+        
+        // 현재 위치 재조정
+        posterScroll.style.transition = 'none';
+        posterScroll.style.transform = `translateX(${-currentIndex * slideDistance}px)`;
+        setTimeout(() => {
+            posterScroll.style.transition = 'transform 0.5s ease';
+        }, 50);
+    });
     
     // 텍스트 전환 효과를 위한 스타일 추가
     if (featuredTitle) featuredTitle.style.transition = 'opacity 0.2s ease';
