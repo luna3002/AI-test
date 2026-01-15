@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="시민과 함께, 세계와 소통하는 서울의 대표 문화공간 - 서울갤러리">
     <meta name="title" content="서울갤러리">
-    <title>서울갤러리</title>
+    <title>서울갤러리 - 시민과 함께, 세계와 소통하는 문화공간</title>
     
     <!-- Google Fonts - Paperlogy & Pretendard -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,8 +17,8 @@
     <!-- ======================= -->
     <!-- HEADER / NAVIGATION -->
     <!-- ======================= -->
-    <header class="header">
-        <nav class="nav-container">
+    <header class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="메인 네비게이션">
             <!-- Logo -->
             <a href="/" class="logo">
                 <img src="assets/logo-seoul-gallery.svg" 
@@ -103,61 +103,61 @@
                 <!-- Calendar Header -->
                 <div class="calendar-header">
                     <h2 class="calendar-title">서울 갤러리 일정</h2>
-                    <button class="calendar-view-btn">
-                        <img src="assets/icon-calendar.svg" alt="" width="14" height="16">
+                    <button class="calendar-view-btn" aria-label="달력 전체 보기">
+                        <img src="assets/icon-calendar.svg" alt="" width="14" height="16" aria-hidden="true">
                         <span>달력보기</span>
                     </button>
                 </div>
 
                 <!-- Month Navigation -->
-                <div class="month-nav">
-                    <button class="month-nav-btn prev" title="이전 달">
-                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+                <div class="month-nav" role="navigation" aria-label="월 선택">
+                    <button class="month-nav-btn prev" aria-label="이전 달로 이동" title="이전 달">
+                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none" aria-hidden="true">
                             <path d="M7 1L1 7L7 13" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <span class="month-title">2025년 12월</span>
-                    <button class="month-nav-btn next disabled" title="다음 달">
-                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+                    <span class="month-title" aria-live="polite">2025년 12월</span>
+                    <button class="month-nav-btn next disabled" aria-label="다음 달로 이동" aria-disabled="true" title="다음 달">
+                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none" aria-hidden="true">
                             <path d="M1 13L7 7L1 1" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                 </div>
 
                 <!-- Calendar Grid -->
-                <div class="calendar-grid">
+                <div class="calendar-grid" role="grid" aria-label="2025년 12월 달력">
                     <!-- Week Header -->
-                    <div class="calendar-weekdays">
-                        <span>월</span>
-                        <span>화</span>
-                        <span>수</span>
-                        <span>목</span>
-                        <span>금</span>
-                        <span>토</span>
-                        <span>일</span>
+                    <div class="calendar-weekdays" role="row">
+                        <span role="columnheader">월</span>
+                        <span role="columnheader">화</span>
+                        <span role="columnheader">수</span>
+                        <span role="columnheader">목</span>
+                        <span role="columnheader">금</span>
+                        <span role="columnheader">토</span>
+                        <span role="columnheader">일</span>
                     </div>
                     <!-- Calendar Days Wrapper -->
                     <div class="calendar-days-wrapper">
-                        <div class="calendar-days">
-                            <span class="day other-month">26</span>
-                            <span class="day other-month">27</span>
-                            <span class="day other-month">28</span>
-                            <span class="day other-month">29</span>
-                            <span class="day other-month">30</span>
-                            <span class="day">1</span>
-                            <span class="day">2</span>
-                            <span class="day">3</span>
-                            <span class="day">4</span>
-                            <span class="day">5</span>
-                            <span class="day">6</span>
-                            <span class="day">7</span>
-                            <span class="day">8</span>
-                            <span class="day">9</span>
-                            <span class="day">10</span>
-                            <span class="day">11</span>
-                            <span class="day">12</span>
-                            <span class="day">13</span>
-                            <span class="day">14</span>
+                        <div class="calendar-days" role="row">
+                            <button class="day other-month" role="gridcell" aria-label="11월 26일" tabindex="-1">26</button>
+                            <button class="day other-month" role="gridcell" aria-label="11월 27일" tabindex="-1">27</button>
+                            <button class="day other-month" role="gridcell" aria-label="11월 28일" tabindex="-1">28</button>
+                            <button class="day other-month" role="gridcell" aria-label="11월 29일" tabindex="-1">29</button>
+                            <button class="day other-month" role="gridcell" aria-label="11월 30일" tabindex="-1">30</button>
+                            <button class="day" role="gridcell" aria-label="12월 1일" tabindex="0">1</button>
+                            <button class="day" role="gridcell" aria-label="12월 2일" tabindex="-1">2</button>
+                            <button class="day" role="gridcell" aria-label="12월 3일" tabindex="-1">3</button>
+                            <button class="day" role="gridcell" aria-label="12월 4일" tabindex="-1">4</button>
+                            <button class="day" role="gridcell" aria-label="12월 5일" tabindex="-1">5</button>
+                            <button class="day" role="gridcell" aria-label="12월 6일" tabindex="-1">6</button>
+                            <button class="day" role="gridcell" aria-label="12월 7일" tabindex="-1">7</button>
+                            <button class="day" role="gridcell" aria-label="12월 8일" tabindex="-1">8</button>
+                            <button class="day" role="gridcell" aria-label="12월 9일" tabindex="-1">9</button>
+                            <button class="day" role="gridcell" aria-label="12월 10일" tabindex="-1">10</button>
+                            <button class="day" role="gridcell" aria-label="12월 11일" tabindex="-1">11</button>
+                            <button class="day" role="gridcell" aria-label="12월 12일" tabindex="-1">12</button>
+                            <button class="day" role="gridcell" aria-label="12월 13일" tabindex="-1">13</button>
+                            <button class="day" role="gridcell" aria-label="12월 14일" tabindex="-1">14</button>
                             <span class="day">15</span>
                             <span class="day">16</span>
                             <span class="day">17</span>
@@ -186,20 +186,20 @@
                 </div>
 
                 <!-- Current Events Section -->
-                <div class="events-section">
+                <div class="events-section" aria-labelledby="events-heading">
                     <div class="events-header">
-                        <span class="events-title">현재 진행중인 일정</span>
-                        <span class="events-count">5</span>
+                        <h2 id="events-heading" class="events-title">현재 진행중인 일정</h2>
+                        <span class="events-count" aria-label="총 5개 일정">5</span>
                     </div>
                     
                     <div class="events-list">
                         <!-- Event Item 1 -->
                         <article class="event-card">
-                            <span class="event-date">10</span>
+                            <span class="event-date" aria-hidden="true">10</span>
                             <div class="event-info">
                                 <h3 class="event-title">서울갤러리 개관 기념 전시회</h3>
                                 <div class="event-period">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                                         <path d="M8 4V8L10.67 9.33M14.67 8C14.67 11.68 11.68 14.67 8 14.67C4.32 14.67 1.33 11.68 1.33 8C1.33 4.32 4.32 1.33 8 1.33C11.68 1.33 14.67 4.32 14.67 8Z" stroke="#666" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                     <span>2025.12.10. - 2025.12.31</span>
@@ -326,17 +326,17 @@
                                     <h3 class="exhibition-name" data-tab="future">미래관</h3>
                                 <h3 class="exhibition-name" data-tab="seoul">서울관</h3>
                                 <h3 class="exhibition-name" data-tab="future-seoul">미래서울관</h3>
-                                    <button class="exhibition-expand-btn">
-                                        <img src="assets/icon-expand.svg" alt="확대" width="20" height="20">
+                                    <button class="exhibition-expand-btn" aria-label="전시 이미지 확대">
+                                        <img src="assets/icon-expand.svg" alt="" width="20" height="20" aria-hidden="true">
                                     </button>
                                 </div>
                                 <img src="assets/imground-right.svg" alt="" class="header-bg-right">
                                 <img src="assets/imground-left.svg" alt="" class="header-bg-left-bottom">
                             </div>
-                            <div class="exhibition-tags">
-                                <span class="tag active" data-tab="future">미래관</span>
-                                <span class="tag" data-tab="seoul">서울관</span>
-                                <span class="tag" data-tab="future-seoul">미래서울관</span>
+                            <div class="exhibition-tags" role="tablist" aria-label="전시관 선택">
+                                <button class="tag active" role="tab" data-tab="future" aria-selected="true" tabindex="0">미래관</button>
+                                <button class="tag" role="tab" data-tab="seoul" aria-selected="false" tabindex="-1">서울관</button>
+                                <button class="tag" role="tab" data-tab="future-seoul" aria-selected="false" tabindex="-1">미래서울관</button>
                             </div>
                         </div>
                         <div class="exhibition-thumbnail">
@@ -373,10 +373,10 @@
                                 <img src="assets/imground-right.svg" alt="" class="header-bg-right">
                                 <img src="assets/imground-left.svg" alt="" class="header-bg-left-bottom">
                             </div>
-                            <div class="exhibition-tags">
-                                <span class="tag green active" data-tab="city">도시관</span>
-                                <span class="tag green" data-tab="world">세계관</span>
-                                <span class="tag green" data-tab="world-city">세계도시관</span>
+                            <div class="exhibition-tags" role="tablist" aria-label="도시관 선택">
+                                <button class="tag green active" role="tab" data-tab="city" aria-selected="true" tabindex="0">도시관</button>
+                                <button class="tag green" role="tab" data-tab="world" aria-selected="false" tabindex="-1">세계관</button>
+                                <button class="tag green" role="tab" data-tab="world-city" aria-selected="false" tabindex="-1">세계도시관</button>
                             </div>
                         </div>
                     </div>
@@ -500,11 +500,11 @@
                         <div class="venue-tags-wrapper">
                              <img src="assets/imground-left.svg" alt="" class="venue-tags-bg-right">
                             <img src="assets/imground-right.svg" alt="" class="venue-tags-bg-left">
-                            <div class="venue-tags-content">
-                                <span class="tag green active" data-venue="workshop" data-image="assets/workshoproom.png" data-title="워크숍룸" data-desc="서울 갤러리는 다양한 장르의 공연과 예술 이벤트가 열리는 공간입니다. <br>관람객들은 특별한 경험을 통해 문화와 예술을 가까이에서 느낄 수 있습니다.">워크숍룸</span>
-                                <span class="tag outline" data-venue="circle" data-image="assets/exhibition-future-seoul.png" data-title="동그라미방" data-desc="동그라미방은 소규모 모임과 워크숍을 위한 아늑한 공간입니다. <br>창의적인 활동과 토론을 위한 최적의 환경을 제공합니다.">동그라미방</span>
-                                <span class="tag outline" data-venue="meeting1" data-image="assets/exhibition-world-main.png" data-title="회의실1" data-desc="회의실1은 비즈니스 미팅과 세미나를 위한 전문 공간입니다. <br>최신 영상 장비와 편안한 좌석을 갖추고 있습니다.">회의실1</span>
-                                <span class="tag outline" data-venue="meeting2" data-image="assets/hero-main-background.png" data-title="회의실2" data-desc="회의실2는 소규모 팀 회의에 적합한 아담한 공간입니다. <br>집중력 있는 업무 환경을 제공합니다.">회의실2</span>
+                            <div class="venue-tags-content" role="tablist" aria-label="대관 공간 선택">
+                                <button class="tag green active" role="tab" data-venue="workshop" data-image="assets/workshoproom.png" data-title="워크숍룸" data-desc="서울 갤러리는 다양한 장르의 공연과 예술 이벤트가 열리는 공간입니다. <br>관람객들은 특별한 경험을 통해 문화와 예술을 가까이에서 느낄 수 있습니다." aria-selected="true" tabindex="0">워크숍룸</button>
+                                <button class="tag outline" role="tab" data-venue="circle" data-image="assets/exhibition-future-seoul.png" data-title="동그라미방" data-desc="동그라미방은 소규모 모임과 워크숍을 위한 아늑한 공간입니다. <br>창의적인 활동과 토론을 위한 최적의 환경을 제공합니다." aria-selected="false" tabindex="-1">동그라미방</button>
+                                <button class="tag outline" role="tab" data-venue="meeting1" data-image="assets/exhibition-world-main.png" data-title="회의실1" data-desc="회의실1은 비즈니스 미팅과 세미나를 위한 전문 공간입니다. <br>최신 영상 장비와 편안한 좌석을 갖추고 있습니다." aria-selected="false" tabindex="-1">회의실1</button>
+                                <button class="tag outline" role="tab" data-venue="meeting2" data-image="assets/hero-main-background.png" data-title="회의실2" data-desc="회의실2는 소규모 팀 회의에 적합한 아담한 공간입니다. <br>집중력 있는 업무 환경을 제공합니다." aria-selected="false" tabindex="-1">회의실2</button>
                             </div>
 
                         </div>
@@ -607,10 +607,11 @@
                 <div class="newsletter">
                     <h3 class="newsletter-title">NEWSLETTER</h3>
                     <p class="newsletter-desc">서울갤러리의 소식과 이야기를 뉴스레터로 받아보세요</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="E-MAIL" class="newsletter-input">
-                        <button type="submit" class="newsletter-btn" title="뉴스레터 구독하기">
-                            <img src="assets/arrow-narrow-right.svg" alt="뉴스레터 구독 아이콘">
+                    <form class="newsletter-form" aria-label="뉴스레터 구독">
+                        <label for="newsletter-email" class="visually-hidden">이메일 주소</label>
+                        <input type="email" id="newsletter-email" placeholder="E-MAIL" class="newsletter-input" required aria-required="true">
+                        <button type="submit" class="newsletter-btn" aria-label="뉴스레터 구독하기" title="뉴스레터 구독하기">
+                            <img src="assets/arrow-narrow-right.svg" alt="" aria-hidden="true">
                         </button>
                     </form>
                 </div>
