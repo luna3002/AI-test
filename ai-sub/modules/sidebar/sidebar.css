@@ -1,0 +1,140 @@
+/* ================================================
+   sidebar.css - 우측 고정 사이드바 스타일
+   - Sidebar Container
+   - Purumi Character
+   - TOP Button
+   - Animations
+================================================ */
+
+/* ========================================
+   SIDEBAR - 우측 고정 사이드바
+======================================== */
+.sidebar {
+    position: fixed;
+    right: 76px;
+    bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 1000;
+}
+
+.purumi-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.purumi-character {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background-color: var(--color-green-bg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purumi-character img {
+    width: 130px;
+    height: 144px;
+    object-fit: cover;
+    margin-top: 30px;
+    margin-left: -10px;
+}
+
+.purumi-badge {
+    position: absolute;
+    top: -8px;
+    right: -18px;
+    background-color: var(--color-primary-dark-green);
+    border-radius: var(--radius-full);
+    padding: 4px 6px;
+}
+
+.purumi-badge span {
+    font-family: var(--font-family-primary);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--color-white);
+    line-height: 1.5;
+}
+
+.purumi-arrow {
+    width: 10px;
+    height: 8px;
+    margin-top: 4px;
+    transform: rotate(180deg);
+}
+
+.top-btn {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-white);
+    border: 1px solid #cdd1d5;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.top-btn svg {
+    width: 14px;
+    height: 19px;
+    margin-bottom: 2px;
+}
+
+.top-btn span {
+    font-family: var(--font-family-primary);
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--color-gray-700);
+}
+
+.top-btn:hover {
+    background-color: var(--color-gray-100);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Apply animations */
+.sidebar {
+    animation: slideInRight 0.5s ease-out 0.3s both;
+}
+
+.purumi-character {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+/* ================================================
+   END: sidebar.css
+================================================ */

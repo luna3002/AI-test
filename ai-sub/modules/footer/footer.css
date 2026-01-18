@@ -1,0 +1,153 @@
+/* ================================================
+   footer.css - 푸터 영역 스타일
+================================================ */
+
+/* ========================================
+   FOOTER - 푸터 영역
+======================================== */
+.site-footer {
+    background-color: var(--color-gray-50);
+    padding: 60px 260px;
+}
+
+.footer-content {
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-leaf {
+    width: 67px;
+    height: auto;
+}
+
+.footer-brand {
+    font-family: var(--font-family-round);
+    font-weight: 800;
+    font-size: 25.34px;
+    color: var(--color-gray-500);
+}
+
+.footer-main {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 16px;
+}
+
+.footer-link-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-link-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-full);
+    padding: 4px 12px;
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: 20px;
+    color: #24262c;
+    letter-spacing: -1px;
+    line-height: 1.4;
+}
+
+.footer-link-btn.bold {
+    font-weight: 700;
+}
+
+.footer-link-btn:hover {
+    background-color: var(--color-gray-100);
+}
+
+.footer-address {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--color-gray-900);
+    letter-spacing: -1px;
+    line-height: 1.4;
+}
+
+.footer-address .copyright {
+    color: var(--color-gray-600);
+}
+
+.footer-contact {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+}
+
+.contact-label {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: 18px;
+    color: #0e1117;
+}
+
+.contact-number {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.phone-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.number {
+    font-family: var(--font-family-primary);
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--color-primary-green);
+}
+
+.contact-desc {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--color-gray-700);
+    letter-spacing: -1px;
+    line-height: 1.4;
+}
+
+.dasan-illustration {
+    width: 108px;
+    height: 71px;
+}
+
+/* ================================================
+   END: footer.css
+================================================ */

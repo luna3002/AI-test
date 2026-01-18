@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="100%" overflow="visible" preserveAspectRatio="none" style="display: block;" viewBox="0 0 28 28" width="100%">
+<g id="&lt;">
+<rect fill="var(--fill-0, #FAFAFA)" height="28" rx="14" width="28"/>
+<path d="M16 18L12 14L16 10" id="Vector" stroke="var(--stroke-0, #AAAAAA)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+</g>
+</svg>

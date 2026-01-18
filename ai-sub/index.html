@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="서울의 공원 - AI 검색 서비스">
+    <meta name="title" content="제안시안 테스트">
+    <title>제안시안 테스트</title>
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="modules/header/header.css">
+    <link rel="stylesheet" href="modules/footer/footer.css">
+    <link rel="stylesheet" href="modules/ai-search/ai-search.css">
+    <link rel="stylesheet" href="modules/sidebar/sidebar.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- ========================================
+         HEADER - 동적으로 로드될 영역
+    ======================================== -->
+    <div id="header-root"></div>
+
+    <!-- ========================================
+         MAIN CONTENT - Sub-AI 영역
+    ======================================== -->
+    <div id="main-root">
+        <main class="main-content"></main>
+    </div>
+
+    <!-- ========================================
+         FOOTER - 동적으로 로드될 영역
+    ======================================== -->
+    <div id="footer-root"></div>
+
+    <!-- ========================================
+         SIDEBAR - 우측 고정 사이드바
+    ======================================== -->
+    <div id="sidebar-root"></div>
+
+    <!-- JavaScript Component Loader & Interactions -->
+    <script>
+        // ========================================
+        // 1. 컴포넌트 동적 로딩
+        // ========================================
+        (function() {
+            // 로드할 컴포넌트 정의
+            const components = [
+                { id: 'header-root', file: 'modules/header/header.html', description: '헤더 영역' },
+                { id: 'main-root', file: 'modules/ai-search/ai-search.html', description: 'AI 검색 영역', container: '.main-content' },
+                { id: 'sidebar-root', file: 'modules/sidebar/sidebar.html', description: '사이드바 영역' },
+                { id: 'footer-root', file: 'modules/footer/footer.html', description: '푸터 영역' }
+            ];
+
+            // 컴포넌트 로드 함수
+            function loadComponent(targetId, filePath, description, container) {
+                console.log(`📥 ${description} 로드 시작: ${filePath}`);
+                
+                return fetch(filePath)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(html => {
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                            // container가 지정된 경우 해당 하위 요소에 삽입
+                            if (container) {
+                                const containerElement = target.querySelector(container);
+                                if (containerElement) {
+                                    containerElement.innerHTML = html;
+                                } else {
+                                    console.error(`❌ 컨테이너를 찾을 수 없음: ${container}`);
+                                    target.innerHTML = html;
+                                }
+                            } else {
+                                target.innerHTML = html;
+                            }
+                            console.log(`✅ ${description} 로드 완료`);
+                        } else {
+                            console.error(`❌ 타겟 요소를 찾을 수 없음: ${targetId}`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(`❌ ${description} 로드 실패:`, error);
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                            target.innerHTML = `<div style="padding: 20px; color: #e74c3c; text-align: center;">
+                                ${description} 로드 실패: ${error.message}
+                            </div>`;
+                        }
+                    });
+            }
+
+            // 순차적으로 모든 컴포넌트 로드
+            console.log('🚀 컴포넌트 로드 시작');
+            
+            let loadChain = Promise.resolve();
+            components.forEach(component => {
+                loadChain = loadChain.then(() => 
+                    loadComponent(component.id, component.file, component.description, component.container)
+                );
+            });
+
+            loadChain.then(() => {
+                console.log('🎉 모든 컴포넌트 로드 완료');
+                // 커스텀 이벤트 발생 (다른 스크립트에서 사용 가능)
+                document.dispatchEvent(new CustomEvent('componentsLoaded'));
+            });
+        })();
+    </script>
+    
+    <!-- 페이지 인터랙션 스크립트 -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

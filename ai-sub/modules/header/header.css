@@ -1,0 +1,137 @@
+/* ================================================
+   header.css - 헤더 영역 스타일
+   - Top Banner
+   - Main Navigation
+================================================ */
+
+/* ========================================
+   TOP BANNER - 서울시 상단 안내 배너
+======================================== */
+.top-banner {
+    background-color: var(--color-gray-50);
+    height: 50px;
+    width: 100%;
+}
+
+.top-banner-content {
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 200px;
+}
+
+.top-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.seoul-logo {
+    width: 98px;
+    height: 25px;
+}
+
+.announcement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.announcement-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.announcement-text {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-black);
+    letter-spacing: -0.75px;
+}
+
+.top-banner-right {
+    display: flex;
+    gap: 32px;
+}
+
+.top-banner-right a {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-black);
+    letter-spacing: -0.8px;
+}
+
+.top-banner-right a:hover {
+    opacity: 0.7;
+}
+
+/* ========================================
+   MAIN NAVIGATION - 메인 네비게이션 바
+======================================== */
+.main-nav {
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-300);
+    padding: 28px 200px;
+}
+
+.main-nav-content {
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.leaf-decoration {
+    width: 67px;
+    height: auto;
+}
+
+.brand-text {
+    font-family: var(--font-family-round);
+    font-weight: 800;
+    font-size: 28.75px;
+    color: var(--color-primary-green-light);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav-menu li a {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: 26px;
+    color: var(--color-gray-900);
+}
+
+.nav-menu li a:hover {
+    color: var(--color-primary-green);
+}
+
+.menu-toggle {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gray-900);
+}
+
+/* ================================================
+   END: header.css
+================================================ */
