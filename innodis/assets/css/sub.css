@@ -1,5 +1,4 @@
-﻿	.sector2 { padding:120px 0 125px } 
-}
+﻿.sector2 { padding:120px 0 125px }
 .sectit1 { font-size:2.188rem; color:#141414; text-align:center }
 @media screen and (min-width: 1024px) { 
 	.sectit1 { font-size:4.375rem } 

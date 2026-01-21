@@ -26,7 +26,6 @@
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video { margin:0; padding:0; -webkit-box-sizing:border-box; box-sizing:border-box }
 body,th,td,input,select,textarea,button { font-size:100%; line-height:1.5; font-family:"NanumSquare",sans-serif; color:#555; font-weight:400; letter-spacing:-0.5px }
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main { display:block }
-body { -webkit-text-size-adjust:none; -moz-text-size-adjust:none; -ms-text-size-adjust:none; text-size-adjust:none }
 h1,h2,h3,h4,h5,h6 { font-size:1rem; font-weight:700 }
 ol,ul,li,dl,dt,dd { list-style:none outside none; padding:0; margin:0 }
 hr { display:none }
@@ -118,7 +117,7 @@ header { position:fixed; width:100%; height:50px; top:0; border-bottom:1px solid
 	header { height:100px } 
 }
 header h1 { position:relative; height:50px }
-header h1 a { text-indent:-9999em; overflow:hidden; display:block; height:100%; background:url("../images/logo.svg") no-repeat left center; background-size:auto 20px; filter: brightness(0) invert(1); -webkit-filter: brightness(0) invert(1); }
+header h1 a { text-indent:-9999em; overflow:hidden; display:block; height:100%; background:url("../images/logo.svg") no-repeat left center; background-size:auto 20px; -webkit-filter: brightness(0) invert(1); filter: brightness(0) invert(1); }
 header .btnmenu { position:absolute; width:32px; height:32px; top:9px; right:15px; border:1px solid #fff; background-color:rgba(20,20,20,0.3); z-index:11 }
 header .btnmenu span { text-indent:-9999em; overflow:hidden; position:absolute; display:block; width:14px; height:2px; top:50%; left:50%; -webkit-transform:translate(-50%); transform:translate(-50%); -webkit-transition:0.3s ease-in-out; transition:0.3s ease-in-out; background-color:#fff }
 header .btnmenu span:nth-child(1) { margin-top:-5px }
@@ -129,9 +128,9 @@ header .btnmenu span:nth-child(3) { width:9px; margin:5px 0 0 -2px }
 .openMenu header .btnmenu span:nth-child(2) { -webkit-transform:rotate(-135deg); transform:rotate(-135deg) }
 .openMenu header .btnmenu { background-color:transparent }
 header.fx { background-color:#fff; border-color:#ccc }
-header.fx h1 a { filter: none; -webkit-filter: none; }
+header.fx h1 a { -webkit-filter: none; filter: none; }
 .subwrapper header { background-color:#fff; border-color:#ccc }
-.subwrapper header h1 a { filter: none; -webkit-filter: none; }
+.subwrapper header h1 a { -webkit-filter: none; filter: none; }
 @media screen and (min-width: 768px) {
 	header h1 { width:155px }
 	.btnmenu { display:none } 
