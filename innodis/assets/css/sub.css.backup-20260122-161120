@@ -8,9 +8,21 @@
 	text-align: center
 }
 
+@media screen and (min-width: 1024px) {
+	.sectit1 {
+		font-size: 4.375rem
+	}
+}
+
 .smallst {
 	font-size: 0.938rem;
 	text-align: center
+}
+
+@media screen and (min-width: 1024px) {
+	.smallst {
+		font-size: 1.375rem
+	}
 }
 
 .ulist1>li {
@@ -18,6 +30,12 @@
 	position: relative;
 	padding-left: 9px;
 	margin-top: 6px
+}
+
+@media screen and (min-width: 1024px) {
+	.ulist1>li {
+		font-size: 1rem
+	}
 }
 
 .ulist1>li::before {
@@ -35,6 +53,14 @@
 	margin-top: 0
 }
 
+@media screen and (min-width: 1024px) {
+	.ulist1>li::before {
+		width: 3px;
+		height: 3px;
+		top: 9px
+	}
+}
+
 .more {
 	position: absolute;
 	left: 50%;
@@ -45,6 +71,12 @@
 	color: #141414
 }
 
+@media screen and (min-width: 1024px) {
+	.more {
+		font-size: 1rem
+	}
+}
+
 .more .isico {
 	margin-left: auto;
 	margin-right: auto;
@@ -52,28 +84,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-	.sectit1 {
-		font-size: 4.375rem
-	}
-
-	.smallst {
-		font-size: 1.375rem
-	}
-
-	.ulist1>li {
-		font-size: 1rem
-	}
-
-	.ulist1>li::before {
-		width: 3px;
-		height: 3px;
-		top: 9px
-	}
-
-	.more {
-		font-size: 1rem
-	}
-
 	.more .isico {
 		margin-bottom: 5px
 	}
@@ -101,6 +111,12 @@
 	margin-bottom: 50px
 }
 
+@media screen and (min-width: 1024px) {
+	.ovw .keyment {
+		margin-bottom: 100px
+	}
+}
+
 .visinfo {
 	position: relative;
 	z-index: 1;
@@ -117,6 +133,22 @@
 	max-width: 100%
 }
 
+@media screen and (min-width: 768px) {
+	.visinfo>div img {
+		max-width: 100%
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.visinfo>div {
+		margin-bottom: 0
+	}
+
+	.visinfo>div+div {
+		margin-left: 110px
+	}
+}
+
 .sub .visual {
 	position: relative;
 	text-align: center;
@@ -129,15 +161,39 @@
 	color: #fff
 }
 
+@media screen and (min-width: 1024px) {
+	.sub .keyment h2 {
+		margin-bottom: 20px
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.sub .keyment h2 {
+		font-size: 4.375rem
+	}
+}
+
 .sub .keyment p {
 	font-size: 0.938rem;
 	color: #fff
+}
+
+@media screen and (min-width: 1024px) {
+	.sub .keyment p {
+		font-size: 1.375rem
+	}
 }
 
 .sub .keyment p>strong {
 	font-size: 1rem;
 	display: block;
 	margin-bottom: 10px
+}
+
+@media screen and (min-width: 1024px) {
+	.sub .keyment p>strong {
+		font-size: 1.5rem
+	}
 }
 
 .history {
@@ -154,6 +210,12 @@
 .history>li h4 {
 	font-size: 1.375rem;
 	color: #f26532
+}
+
+@media screen and (min-width: 1024px) {
+	.history>li h4 {
+		font-size: 2rem
+	}
 }
 
 .history>li::before {
@@ -193,44 +255,9 @@
 	z-index: 1
 }
 
-@media screen and (min-width: 768px) {
-	.visinfo>div img {
-		max-width: 100%
-	}
-}
-
 @media screen and (min-width: 1024px) {
-	.ovw .keyment {
-		margin-bottom: 100px
-	}
-
-	.visinfo>div {
-		margin-bottom: 0
-	}
-
-	.visinfo>div+div {
-		margin-left: 110px
-	}
-
 	.sub .visual {
 		padding: 130px 0 160px
-	}
-
-	.sub .keyment h2 {
-		margin-bottom: 20px;
-		font-size: 4.375rem
-	}
-
-	.sub .keyment p {
-		font-size: 1.375rem
-	}
-
-	.sub .keyment p>strong {
-		font-size: 1.5rem
-	}
-
-	.history>li h4 {
-		font-size: 2rem
 	}
 
 	.history {
@@ -3512,8 +3539,4 @@
 	.tab-index {
 		margin-bottom: 30px;
 	}
-}
-
-#topBtn {
-	display: none;
 }

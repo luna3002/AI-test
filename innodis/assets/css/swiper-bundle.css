@@ -140,12 +140,18 @@
 /* CSS Mode */
 .swiper-css-mode>.swiper-wrapper {
   overflow: auto;
-  scrollbar-width: none;
-  /* For Firefox */
   -ms-overflow-style: none;
   /* For Internet Explorer and Edge */
 }
 
+/* Firefox scrollbar hiding */
+@supports (scrollbar-width: none) {
+  .swiper-css-mode>.swiper-wrapper {
+    scrollbar-width: none;
+  }
+}
+
+/* WebKit browsers (Chrome, Safari) scrollbar hiding */
 .swiper-css-mode>.swiper-wrapper::-webkit-scrollbar {
   display: none;
 }
@@ -194,6 +200,7 @@
 
 .swiper-virtual .swiper-slide {
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   transform: translateZ(0);
 }
 
@@ -281,8 +288,8 @@
   display: none;
 }
 
+/* Pagination CSS Variables (commented out by default)
 :root {
-  /*
   --swiper-pagination-color: var(--swiper-theme-color);
   --swiper-pagination-bullet-size: 8px;
   --swiper-pagination-bullet-width: 8px;
@@ -292,8 +299,8 @@
   --swiper-pagination-bullet-opacity: 1;
   --swiper-pagination-bullet-horizontal-gap: 4px;
   --swiper-pagination-bullet-vertical-gap: 6px;
-  */
 }
+*/
 
 .swiper-pagination {
   position: absolute;
@@ -480,6 +487,7 @@ button.swiper-pagination-bullet {
   border-radius: 10px;
   position: relative;
   -ms-touch-action: none;
+  touch-action: none;
   background: rgba(0, 0, 0, 0.1);
 }
 
@@ -540,12 +548,11 @@ button.swiper-pagination-bullet {
   cursor: move;
 }
 
-/* Preloader */
+/* Preloader CSS Variables (commented out by default)
 :root {
-  /*
   --swiper-preloader-color: var(--swiper-theme-color);
-  */
 }
+*/
 
 .swiper-lazy-preloader {
   width: 42px;
