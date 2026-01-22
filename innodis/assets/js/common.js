@@ -7,19 +7,20 @@ $(document).ready(function(){
     });
 
     // 탑메뉴 제어
-    var isHeaderFixed = false;
+    var fxb;
     $(window).unbind('scroll').bind('scroll',function(){
-        var scrollTop = $(this).scrollTop();
+        var wTop = $(this).scrollTop();
         //상단메뉴 고정
-        if(scrollTop > 50){
-            if(!isHeaderFixed){
+        if(wTop > 50){
+            if(fxb != 1){
                 $('header').addClass('fx');
-                isHeaderFixed = true;
+                
+                fxb = 1;
             }
         }else{
-            if(isHeaderFixed){
+            if(fxb == 1){
                 $('header').removeClass('fx');
-                isHeaderFixed = false;
+                fxb = "";
             }
         }
     });
@@ -178,32 +179,36 @@ $(document).ready(function(){
     }
 
     // 솔루션카드 250401 추가
-    var $firstCard = $('.sol_card_list li').first();
-    var $lastCard = $('.sol_card_list li').last();
-    
-    $firstCard.addClass('on');
-    
-    $firstCard.hover(
-        function() {
-            $(this).addClass('on');
-            $lastCard.removeClass('on');
-        }, 
-        function() {
-            $(this).addClass('on');
-            $lastCard.removeClass('on');
-        }
-    );
+    $('.sol_card_list li').first().addClass('on');
+    $('.sol_card_list li').first().hover(function() {
+        $(this).addClass('on');
+        $('.sol_card_list li').last().removeClass('on');
+    }, function() {
+        $(this).addClass('on');
+        $('.sol_card_list li').last().removeClass('on');
+    });
 
-    $lastCard.hover(
-        function() {
-            $(this).addClass('on');
-            $firstCard.removeClass('on');
-        }, 
-        function() {
-            $(this).removeClass('on');
-            $firstCard.addClass('on');
-        }
-    ); 
+    $('.sol_card_list li').last().hover(function() {
+        $(this).addClass('on');
+        $('.sol_card_list li').first().removeClass('on');
+    }, function() {
+        $(this).removeClass('on');
+        $('.sol_card_list li').first().addClass('on');
+    }); 
+
+    //서브탭메뉴 - 250512 제거
+    // if (window.innerWidth <= 768) {
+    //     if ($(".tab_swiper .tab_list").length > 0) {
+    //         var tab_swiper = new Swiper('.tab_swiper', {
+    //             loop: false,
+    //             slidesPerView: 3,
+    //             pagination: {
+    //                 el: ".swiper-pagination",
+    //                 clickable: true,
+    //             },
+    //         });
+    //     };
+    // };
 
     // 고객사 슬라이드 - 250411 수정
     new Swiper('.con_list01', {
